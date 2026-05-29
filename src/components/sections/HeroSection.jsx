@@ -26,7 +26,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative h-[100dvh] md:min-h-screen flex flex-col md:flex-row items-center bg-navy-dark overflow-hidden hero-slice-container">
+    <section id="hero" className="relative h-[100dvh] lg:min-h-screen flex items-center bg-navy-dark overflow-hidden hero-slice-container">
       
       {/* LEFT SIDE: Finished Goods */}
       <div 
@@ -42,14 +42,14 @@ export default function HeroSection() {
           <div className="absolute top-0 bottom-0 left-0 w-[80%] md:w-[50%] bg-gradient-to-r from-navy-dark/80 to-transparent pointer-events-none" />
         </div>
         
-        <div className="relative z-10 w-full h-full flex flex-col justify-center items-start px-6 sm:px-10 md:pl-20 lg:pl-32 pt-16 md:pt-20">
+        <div className="relative z-10 w-[50%] lg:w-full h-full flex flex-col justify-center items-start pl-4 sm:pl-8 md:pl-12 lg:pl-32 pr-2 lg:pr-0 pt-20">
           <div className={`hero-content-inner text-left max-w-lg transition-all duration-500 hover-scale ${expandingSide === 'right' ? 'opacity-0' : 'opacity-100'}`}>
             <div className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 rounded-full px-4 py-1.5 mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.5)] backdrop-blur-md">
               <span className="text-[10px] font-extrabold text-white uppercase tracking-widest leading-none drop-shadow-md">
                 Final Product
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-4 tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-4 tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
               Finished <br/><span className="text-red drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">Goods</span>
             </h2>
             <p className="text-white text-sm md:text-base leading-relaxed mb-6 font-medium max-w-sm drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
@@ -57,7 +57,7 @@ export default function HeroSection() {
             </p>
             <button 
               onClick={() => handleNavigate('/finished-goods', 'left')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-red text-white font-bold tracking-widest uppercase text-xs rounded-full hover:bg-red-hover hover:shadow-[0_0_20px_rgba(211,47,47,0.5)] hover:-translate-y-0.5 transition-all duration-300 group mt-2"
+              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 md:px-8 py-2.5 sm:py-3.5 bg-red text-white font-bold tracking-widest uppercase text-[10px] sm:text-xs rounded-full hover:bg-red-hover hover:shadow-[0_0_20px_rgba(211,47,47,0.5)] hover:-translate-y-0.5 transition-all duration-300 group mt-2"
             >
               View Finished Goods <HiArrowRight className="transform group-hover:translate-x-1 transition-transform" size={16} />
             </button>
@@ -79,14 +79,14 @@ export default function HeroSection() {
           <div className="absolute top-0 bottom-0 right-0 w-[80%] md:w-[50%] bg-gradient-to-l from-navy-dark/80 to-transparent pointer-events-none" />
         </div>
         
-        <div className="relative z-10 w-full h-full flex flex-col justify-center items-end px-6 sm:px-10 md:pr-20 lg:pr-32 pb-8 md:pb-0 md:pt-20 text-right">
+        <div className="relative z-10 w-[50%] lg:w-full h-full ml-auto flex flex-col justify-center items-end pr-4 sm:pr-8 md:pr-12 lg:pr-32 pl-2 lg:pl-0 pt-20 text-right">
           <div className={`hero-content-inner max-w-lg transition-all duration-500 hover-scale text-right flex flex-col items-end ${expandingSide === 'left' ? 'opacity-0' : 'opacity-100'}`}>
             <div className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 rounded-full px-4 py-1.5 mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.5)] backdrop-blur-md">
               <span className="text-[10px] font-extrabold text-white uppercase tracking-widest leading-none drop-shadow-md">
                 Core Inputs
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-4 tracking-tight drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-4 tracking-tight drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]">
               Raw <br/><span className="text-slate-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">Materials</span>
             </h2>
             <p className="text-white text-sm md:text-base leading-relaxed mb-6 font-medium max-w-sm drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
@@ -94,7 +94,7 @@ export default function HeroSection() {
             </p>
             <button 
               onClick={() => handleNavigate('/raw-materials', 'right')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-xs rounded-full hover:bg-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300 group mt-2"
+              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 md:px-8 py-2.5 sm:py-3.5 bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-[10px] sm:text-xs rounded-full hover:bg-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300 group mt-2"
             >
               <HiArrowRight className="transform rotate-180 group-hover:-translate-x-1 transition-transform" size={16} /> View Raw Materials
             </button>
