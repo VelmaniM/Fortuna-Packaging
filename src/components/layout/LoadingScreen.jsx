@@ -36,6 +36,21 @@ export default function LoadingScreen({ onComplete }) {
     window.setTimeout(finishLoading, 1200);
   }, [finishLoading]);
 
+  const [isAppleDevice, setIsAppleDevice] = useState(false);
+
+  useEffect(() => {
+    // Detect iOS devices and Safari where WebM alpha transparency fails
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    
+    if (isIOS || isSafari) {
+      setIsAppleDevice(true);
+      // Since image has no 'onEnded' event, auto-dismiss after 2.5 seconds
+      const timer = window.setTimeout(finishLoading, 2500);
+      return () => window.clearTimeout(timer);
+    }
+  }, [finishLoading]);
+
   return (
     <div
       className={`fixed inset-0 z-[10000] grid place-items-center overflow-hidden bg-white px-6 ${exiting ? 'loader-exit' : ''}`}
@@ -44,19 +59,27 @@ export default function LoadingScreen({ onComplete }) {
     >
       <div className="loader-content flex w-full max-w-[31rem] flex-col items-center justify-center text-center">
         <div className="mb-5 grid h-[18rem] w-[18rem] place-items-center sm:h-[21rem] sm:w-[21rem] md:h-[23rem] md:w-[23rem]">
-          <video
-            className="h-full w-full object-contain drop-shadow-[0_18px_36px_rgba(0,31,63,0.10)]"
-            autoPlay
-            muted
-            playsInline
-            preload="auto"
-            aria-label="Fortuna logo animation"
-            onLoadedMetadata={handleVideoReady}
-            onEnded={finishLoading}
-            onError={handleVideoError}
-          >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.webm" type="video/webm" />
-          </video>
+          {isAppleDevice ? (
+            <img
+              src="/Fortuna-Packaging/images/fortuna-fingerprint-loader-transparent.png"
+              alt="Fortuna logo"
+              className="h-full w-full object-contain animate-pulse drop-shadow-[0_18px_36px_rgba(0,31,63,0.10)]"
+            />
+          ) : (
+            <video
+              className="h-full w-full object-contain drop-shadow-[0_18px_36px_rgba(0,31,63,0.10)]"
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              aria-label="Fortuna logo animation"
+              onLoadedMetadata={handleVideoReady}
+              onEnded={finishLoading}
+              onError={handleVideoError}
+            >
+              <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.webm" type="video/webm" />
+            </video>
+          )}
         </div>
 
         <img
