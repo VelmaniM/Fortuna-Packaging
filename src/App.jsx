@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import LoadingScreen from './components/layout/LoadingScreen';
 import Navbar from './components/layout/Navbar';
 import HomePage from './pages/HomePage';
@@ -8,20 +8,14 @@ import RawMaterialPage from './pages/RawMaterialPage';
 import ChatBot from './components/ui/ChatBot';
 import './App.css';
 
-const VISITED_KEY = 'fortuna-visited';
-
 function AppContent() {
-  const [isLoading, setIsLoading] = useState(() => {
-    if (typeof window === 'undefined') return true;
-    return !sessionStorage.getItem(VISITED_KEY);
-  });
-  
-  const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const handleLoadComplete = useCallback(() => {
-    sessionStorage.setItem(VISITED_KEY, '1');
     setIsLoading(false);
-  }, []);
+    navigate('/');
+  }, [navigate]);
 
   if (isLoading) {
     return <LoadingScreen onComplete={handleLoadComplete} />;
