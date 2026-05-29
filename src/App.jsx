@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import LoadingScreen from './components/layout/LoadingScreen';
 import Navbar from './components/layout/Navbar';
 import HomePage from './pages/HomePage';
