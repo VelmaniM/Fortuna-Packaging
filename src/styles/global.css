@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #001f3f;
+  --red: #d32f2f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  background: #ffffff;
+  color: #334155;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(211, 47, 47, 0.2);
+  color: #001f3f;
+}
+
+/* Scroll reveal — GPU-friendly, no JS animation loop */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-12;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-md bg-red text-white font-semibold text-sm tracking-wide;
+    @apply transition-colors duration-200 hover:bg-red-hover;
+  }
+
+  .heading-xl {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight;
+  }
+
+  .text-red-accent {
+    @apply text-red;
+  }
+}
+
+/* Defer off-screen section paint */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+img {
+  content-visibility: auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #001f3f;
+  border-radius: 4px;
+}

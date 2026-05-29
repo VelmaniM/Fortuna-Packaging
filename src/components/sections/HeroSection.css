@@ -1,0 +1,109 @@
+.hero-slice-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  transition: clip-path 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-left {
+  left: 0;
+  z-index: 2;
+  transform: translateX(-15%);
+  opacity: 0;
+  /* Diagonal slash / (Top 60%, Bottom 40%) */
+  clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, clip-path 0.5s ease;
+}
+
+.hero-right {
+  right: 0;
+  z-index: 1;
+  transform: translateX(15%);
+  opacity: 0;
+  /* Diagonal slash / (Top 60%, Bottom 40%) */
+  clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, clip-path 0.5s ease;
+}
+
+/* Transition effect for expanding on click */
+.hero-left.expanding {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+  z-index: 20;
+}
+
+.hero-right.expanding {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+  z-index: 20;
+}
+
+.hero-left.joined {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.hero-right.joined {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.hero-divider {
+  left: 50%;
+  transform: translateX(-50%) rotate(10deg); /* Adjust angle to match clip-path */
+  height: 150%;
+  top: -25%;
+  opacity: 0;
+}
+
+.hero-divider.joined {
+  opacity: 1;
+}
+
+.hover-scale {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-left:hover .hover-scale {
+  transform: scale(1.03) translateX(10px);
+}
+
+.hero-right:hover .hover-scale {
+  transform: scale(1.03) translateX(-10px);
+}
+
+/* Base animations if needed for other elements */
+.hero-enter {
+  animation: hero-fade 0.55s ease forwards;
+}
+
+.hero-enter-delay-1 {
+  animation-delay: 0.08s;
+  opacity: 0;
+}
+
+.hero-enter-delay-2 {
+  animation-delay: 0.16s;
+  opacity: 0;
+}
+
+.hero-enter-delay-3 {
+  animation-delay: 0.24s;
+  opacity: 0;
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,22 @@
+/* Contact Section component styles */
+
+/* Background Image Layer */
+.contact-background {
+  background-image: url("/images/contact-support.jpg");
+}
+
+/* Grid Matrix Overlay */
+.contact-grid-overlay {
+  background-image: radial-gradient(rgba(0, 31, 63, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Pulsing Orb Animations */
+.contact-pulse-sky {
+  animation-duration: 10s;
+}
+
+.contact-pulse-red {
+  animation-duration: 12s;
+}
+

@@ -1,0 +1,45 @@
+/* Hero enters immediately on load */
+.classic-hero-enter {
+  animation: classic-hero-fade 0.55s ease forwards;
+}
+
+.classic-hero-enter-delay-1 {
+  animation-delay: 0.08s;
+  opacity: 0;
+}
+
+.classic-hero-enter-delay-2 {
+  animation-delay: 0.16s;
+  opacity: 0;
+}
+
+.classic-hero-enter-delay-3 {
+  animation-delay: 0.24s;
+  opacity: 0;
+}
+
+@keyframes classic-hero-fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Grid Matrix Overlay */
+.classic-hero-grid-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Pulsing Orb Animations */
+.classic-hero-pulse-red {
+  animation-duration: 8s;
+}
+
+.classic-hero-pulse-green {
+  animation-duration: 10s;
+}
