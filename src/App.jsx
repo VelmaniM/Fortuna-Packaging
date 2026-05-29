@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import LoadingScreen from './components/layout/LoadingScreen';
 import Navbar from './components/layout/Navbar';
@@ -11,6 +11,19 @@ import './App.css';
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+
+  // Prevent right-clicking on images and videos globally
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+        e.preventDefault();
+      }
+    };
+    document.addEventListener('contextmenu', handleContextMenu);
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, []);
 
   const handleLoadComplete = useCallback(() => {
     setIsLoading(false);

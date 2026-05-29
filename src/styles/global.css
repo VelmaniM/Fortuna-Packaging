@@ -101,3 +101,13 @@ img {
   background: #001f3f;
   border-radius: 4px;
 }
+
+/* Prevent dragging links, images, and videos (ghost image) */
+a, img, video {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
