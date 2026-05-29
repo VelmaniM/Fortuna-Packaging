@@ -9,7 +9,7 @@ export default function ClassicHeroSection() {
       {/* Cinematic Full-Bleed Background Container */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <img
-          src="/images/brochure/company-plant.jpg"
+          src="/Fortuna-Packaging/images/brochure/company-plant.jpg"
           alt="Fortuna Packaging manufacturing facility"
           className="w-full h-full object-cover opacity-60 scale-105 filter brightness-[0.65] contrast-[1.05]"
           width={1920}

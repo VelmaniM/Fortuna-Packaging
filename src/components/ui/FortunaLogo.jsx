@@ -22,8 +22,8 @@ export default function FortunaLogo({ size = 'md', showTagline = true, light = f
     scrollToSection('#hero');
   };
 
-  const fingerprintSrc = `/images/fortuna-fingerprint-loader-transparent.png${timestamp ? `?t=${timestamp}` : ''}`;
-  const wordmarkSrc = `/images/fortuna-wordmark-transparent.png${timestamp ? `?t=${timestamp}` : ''}`;
+  const fingerprintSrc = `/Fortuna-Packaging/images/fortuna-fingerprint-loader-transparent.png${timestamp ? `?t=${timestamp}` : ''}`;
+  const wordmarkSrc = `/Fortuna-Packaging/images/fortuna-wordmark-transparent.png${timestamp ? `?t=${timestamp}` : ''}`;
 
   return (
     <a href="#hero" className="flex items-center gap-0.5 group" onClick={goHome} aria-label="Fortuna home">

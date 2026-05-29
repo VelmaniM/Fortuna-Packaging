@@ -40,7 +40,7 @@ export default function AboutSection() {
           <div className="reveal relative">
             <div className="rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
               <img
-                src="/images/brochure/company-plant-wide.jpg"
+                src="/Fortuna-Packaging/images/brochure/company-plant-wide.jpg"
                 alt="Fortuna Packaging corporate entrance"
                 className="w-full h-full object-cover"
                 width={700}

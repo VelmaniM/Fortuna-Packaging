@@ -35,7 +35,7 @@ export default function HeroSection() {
       >
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/brochure/finished-goods-hero.jpg"
+            src="/Fortuna-Packaging/images/brochure/finished-goods-hero.jpg"
             alt="Finished Goods"
             className="w-full h-full object-cover scale-105 transition-transform duration-1000 group-hover:scale-100 contrast-105 brightness-105"
           />
@@ -72,7 +72,7 @@ export default function HeroSection() {
       >
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/brochure/raw-materials-hero.jpg"
+            src="/Fortuna-Packaging/images/brochure/raw-materials-hero.jpg"
             alt="Raw Materials"
             className="w-full h-full object-cover scale-105 transition-transform duration-1000 group-hover:scale-100 contrast-105 brightness-105"
           />

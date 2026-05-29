@@ -6,37 +6,37 @@ const FINISHED_GOODS = [
   { 
     id: 1, 
     title: 'Stand-up Snack Pouches', 
-    img: '/images/finished-goods/fg_pouch_snack_1779799377312.png', 
+    img: '/Fortuna-Packaging/images/finished-goods/fg_pouch_snack_1779799377312.png', 
     desc: 'Premium organic snack pouches with matte finish and robust ziplock.' 
   },
   { 
     id: 2, 
     title: 'Coffee Bean Bags', 
-    img: '/images/finished-goods/fg_pouch_coffee_1779799394358.png', 
+    img: '/Fortuna-Packaging/images/finished-goods/fg_pouch_coffee_1779799394358.png', 
     desc: 'Specialty coffee packaging featuring one-way degassing valves and elegant metallic accents.' 
   },
   { 
     id: 3, 
     title: 'Vibrant Shrink Sleeves', 
-    img: '/images/finished-goods/fg_shrink_sleeve_1779799413916.png', 
+    img: '/Fortuna-Packaging/images/finished-goods/fg_shrink_sleeve_1779799413916.png', 
     desc: '360-degree colorful shrink sleeve labels providing maximum branding real estate.' 
   },
   { 
     id: 4, 
     title: 'Printed Laminate Rolls', 
-    img: '/images/finished-goods/fg_laminate_roll_1779799430156.png', 
+    img: '/Fortuna-Packaging/images/finished-goods/fg_laminate_roll_1779799430156.png', 
     desc: 'High-gloss printed laminate films engineered for high-speed automated packaging lines.' 
   },
   { 
     id: 5, 
     title: 'Liquid Spout Pouches', 
-    img: '/images/finished-goods/fg_spout_pouch_1779799446947.png', 
+    img: '/Fortuna-Packaging/images/finished-goods/fg_spout_pouch_1779799446947.png', 
     desc: 'Durable spout pouches ideal for purees, beverages, and liquid cosmetics.' 
   },
   { 
     id: 6, 
     title: 'Luxury Sachets', 
-    img: '/images/finished-goods/fg_sachet_pack_1779799466595.png', 
+    img: '/Fortuna-Packaging/images/finished-goods/fg_sachet_pack_1779799466595.png', 
     desc: 'Flat sachet packaging delivering a luxury feel for cosmetics, spices, and samples.' 
   },
 ];

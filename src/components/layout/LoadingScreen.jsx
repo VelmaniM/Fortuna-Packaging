@@ -55,12 +55,12 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            <source src="/videos/fortuna-loader-logo-transparent.webm" type="video/webm" />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.webm" type="video/webm" />
           </video>
         </div>
 
         <img
-          src="/images/fortuna-wordmark-transparent.png"
+          src="/Fortuna-Packaging/images/fortuna-wordmark-transparent.png"
           alt="Fortuna - Impress With Impressions"
           className="w-full max-w-[20rem] object-contain drop-shadow-[0_12px_24px_rgba(0,31,63,0.07)] sm:max-w-[24rem] md:max-w-[27rem]"
         />

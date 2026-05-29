@@ -26,7 +26,7 @@ export default function InfrastructureSection() {
             <div className="grid md:grid-cols-[0.95fr_1.05fr] h-full">
               <div className="min-h-72 bg-slate-50 flex items-center justify-center p-8">
                 <img
-                  src="/images/brochure/company-plant.jpg"
+                  src="/Fortuna-Packaging/images/brochure/company-plant.jpg"
                   alt="Fortuna Packaging production campus"
                   className="h-full w-full object-cover"
                   width={480 }

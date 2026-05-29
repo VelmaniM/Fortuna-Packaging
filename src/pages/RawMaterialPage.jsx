@@ -6,37 +6,37 @@ const RAW_MATERIALS = [
   { 
     id: 1, 
     title: 'Plastic Resin Pellets', 
-    img: '/images/raw-materials/rm_plastic_pellets_1779799638127.png', 
+    img: '/Fortuna-Packaging/images/raw-materials/rm_plastic_pellets_1779799638127.png', 
     desc: 'High-grade polymer resins providing exceptional tensile strength and flexibility.' 
   },
   { 
     id: 2, 
     title: 'Aluminum Foil Rolls', 
-    img: '/images/raw-materials/rm_aluminum_foil_1779799657817.png', 
+    img: '/Fortuna-Packaging/images/raw-materials/rm_aluminum_foil_1779799657817.png', 
     desc: 'Premium aluminum foil offering unparalleled barrier protection against moisture and oxygen.' 
   },
   { 
     id: 3, 
     title: 'Organic Kraft Paper', 
-    img: '/images/raw-materials/rm_kraft_paper_1779799672891.png', 
+    img: '/Fortuna-Packaging/images/raw-materials/rm_kraft_paper_1779799672891.png', 
     desc: 'Sustainable, high-durability kraft paper for eco-friendly packaging solutions.' 
   },
   { 
     id: 4, 
     title: 'Vibrant CMYK Inks', 
-    img: '/images/raw-materials/rm_ink_pigments_1779799689525.png', 
+    img: '/Fortuna-Packaging/images/raw-materials/rm_ink_pigments_1779799689525.png', 
     desc: 'Food-safe, highly pigmented liquid inks for vivid and precise flexographic printing.' 
   },
   { 
     id: 5, 
     title: 'Laminating Adhesives', 
-    img: '/images/raw-materials/rm_adhesive_1779799708460.png', 
+    img: '/Fortuna-Packaging/images/raw-materials/rm_adhesive_1779799708460.png', 
     desc: 'Industrial-grade adhesives ensuring unbreakable bonds between multi-layer films.' 
   },
   { 
     id: 6, 
     title: 'PET Film Rolls', 
-    img: '/images/raw-materials/rm_pet_film_1779799727297.png', 
+    img: '/Fortuna-Packaging/images/raw-materials/rm_pet_film_1779799727297.png', 
     desc: 'Crystal-clear PET plastic films delivering high gloss and puncture resistance.' 
   },
 ];

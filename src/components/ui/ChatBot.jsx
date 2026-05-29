@@ -146,7 +146,7 @@ export default function ChatBot() {
           {/* Full Background Image (User Uploaded Logo) */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <img 
-              src="/images/fortuna-colored-logo.jpg" 
+              src="/Fortuna-Packaging/images/fortuna-colored-logo.jpg" 
               alt="Chat Background" 
               className="w-full h-full object-cover opacity-100" 
             />
