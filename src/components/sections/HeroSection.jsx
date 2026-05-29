@@ -42,24 +42,25 @@ export default function HeroSection() {
           <div className="absolute top-0 bottom-0 left-0 w-[80%] md:w-[50%] bg-gradient-to-r from-navy-dark/80 to-transparent pointer-events-none" />
         </div>
         
-        <div className="relative z-10 w-full h-full flex flex-col justify-center items-start pl-10 md:pl-20 lg:pl-32 pt-20">
-          <div className={`hero-content-inner text-left max-w-lg transition-all duration-500 hover-scale ${expandingSide === 'right' ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 rounded-full px-4 py-1.5 mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.5)] backdrop-blur-md">
-              <span className="text-[10px] font-extrabold text-white uppercase tracking-widest leading-none drop-shadow-md">
+        {/* Set w-[50%] on mobile to restrict flex container to left half, adjust paddings */}
+        <div className="relative z-10 w-[50%] md:w-full h-full flex flex-col justify-center items-start pl-4 sm:pl-10 md:pl-20 lg:pl-32 pt-20 pr-2 md:pr-0">
+          <div className={`hero-content-inner text-left w-full transition-all duration-500 hover-scale ${expandingSide === 'right' ? 'opacity-0' : 'opacity-100'}`}>
+            <div className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 rounded-full px-2 py-1 sm:px-4 sm:py-1.5 mb-2 sm:mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.5)] backdrop-blur-md">
+              <span className="text-[8px] sm:text-[10px] font-extrabold text-white uppercase tracking-widest leading-none drop-shadow-md">
                 Final Product
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-4 tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-2 sm:mb-4 tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
               Finished <br/><span className="text-red drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">Goods</span>
             </h2>
-            <p className="text-white text-sm md:text-base leading-relaxed mb-6 font-medium max-w-sm drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
+            <p className="hidden md:block text-white text-sm md:text-base leading-relaxed mb-6 font-medium max-w-sm drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
               Premium quality flexible packaging ready for the retail shelf. Discover our range of pouches, labels, and laminates.
             </p>
             <button 
               onClick={() => handleNavigate('/finished-goods', 'left')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-red text-white font-bold tracking-widest uppercase text-xs rounded-full hover:bg-red-hover hover:shadow-[0_0_20px_rgba(211,47,47,0.5)] hover:-translate-y-0.5 transition-all duration-300 group mt-2"
+              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-8 py-2 sm:py-3.5 bg-red text-white font-bold tracking-widest uppercase text-[10px] sm:text-xs rounded-full hover:bg-red-hover hover:shadow-[0_0_20px_rgba(211,47,47,0.5)] hover:-translate-y-0.5 transition-all duration-300 group mt-2 whitespace-nowrap"
             >
-              View Finished Goods <HiArrowRight className="transform group-hover:translate-x-1 transition-transform" size={16} />
+              View Finished Goods <HiArrowRight className="transform group-hover:translate-x-1 transition-transform" size={14} />
             </button>
           </div>
         </div>
@@ -79,24 +80,25 @@ export default function HeroSection() {
           <div className="absolute top-0 bottom-0 right-0 w-[80%] md:w-[50%] bg-gradient-to-l from-navy-dark/80 to-transparent pointer-events-none" />
         </div>
         
-        <div className="relative z-10 w-full h-full flex flex-col justify-center items-end pr-10 md:pr-20 lg:pr-32 pt-20 text-right">
-          <div className={`hero-content-inner max-w-lg transition-all duration-500 hover-scale text-right flex flex-col items-end ${expandingSide === 'left' ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 rounded-full px-4 py-1.5 mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.5)] backdrop-blur-md">
-              <span className="text-[10px] font-extrabold text-white uppercase tracking-widest leading-none drop-shadow-md">
+        {/* Set w-[50%] on mobile, align content strictly to the right half */}
+        <div className="relative z-10 w-[50%] md:w-full h-full flex flex-col justify-center items-end pr-4 sm:pr-10 md:pr-20 lg:pr-32 pt-20 text-right ml-auto pl-2 md:pl-0">
+          <div className={`hero-content-inner w-full transition-all duration-500 hover-scale text-right flex flex-col items-end ${expandingSide === 'left' ? 'opacity-0' : 'opacity-100'}`}>
+            <div className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 rounded-full px-2 py-1 sm:px-4 sm:py-1.5 mb-2 sm:mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.5)] backdrop-blur-md">
+              <span className="text-[8px] sm:text-[10px] font-extrabold text-white uppercase tracking-widest leading-none drop-shadow-md">
                 Core Inputs
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-4 tracking-tight drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-2 sm:mb-4 tracking-tight drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]">
               Raw <br/><span className="text-slate-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">Materials</span>
             </h2>
-            <p className="text-white text-sm md:text-base leading-relaxed mb-6 font-medium max-w-sm drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="hidden md:block text-white text-sm md:text-base leading-relaxed mb-6 font-medium max-w-sm drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               The highest grade films, inks, and substrates that form the foundation of our superior packaging solutions.
             </p>
             <button 
               onClick={() => handleNavigate('/raw-materials', 'right')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-xs rounded-full hover:bg-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300 group mt-2"
+              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-8 py-2 sm:py-3.5 bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-[10px] sm:text-xs rounded-full hover:bg-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300 group mt-2 whitespace-nowrap"
             >
-              <HiArrowRight className="transform rotate-180 group-hover:-translate-x-1 transition-transform" size={16} /> View Raw Materials
+              <HiArrowRight className="transform rotate-180 group-hover:-translate-x-1 transition-transform" size={14} /> View Raw Materials
             </button>
           </div>
         </div>
