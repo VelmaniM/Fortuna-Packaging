@@ -5,6 +5,8 @@ import Navbar from './components/layout/Navbar';
 import HomePage from './pages/HomePage';
 import FinishedGoodsPage from './pages/FinishedGoodsPage';
 import RawMaterialPage from './pages/RawMaterialPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
 import ChatBot from './components/ui/ChatBot';
 import './App.css';
 
@@ -65,6 +67,8 @@ function AppContent() {
         <Route path="/" element={<HomePage />} />
         <Route path="/finished-goods" element={<FinishedGoodsPage />} />
         <Route path="/raw-materials" element={<RawMaterialPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-of-service" element={<TermsOfServicePage />} />
       </Routes>
       <ChatBot />
     </>

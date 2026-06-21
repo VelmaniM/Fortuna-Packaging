@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { HiMail, HiPhone, HiGlobe, HiLocationMarker, HiArrowRight, HiUser, HiChat, HiClock, HiCheck } from 'react-icons/hi';
 import { FaLinkedinIn, FaInstagram, FaWhatsapp, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import FortunaLogo from '../ui/FortunaLogo';
 import { COMPANY, NAV_LINKS } from '../../utils/constants';
 import { scrollToSection } from '../../utils/scrollTo';
@@ -485,8 +486,8 @@ export default function ContactSection() {
               © {new Date().getFullYear()} {COMPANY.fullName}. All Rights Reserved. <br className="md:hidden" /> Designed & Developed by <a href="https://velmani-company.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-navy dark:text-white font-medium hover:underline">Velmani M</a>
             </p>
             <div className="contact-footer__legal-links">
-              <a href="#" className="contact-footer__legal-link">Privacy Policy</a>
-              <a href="#" className="contact-footer__legal-link">Terms of Service</a>
+              <Link to="/privacy-policy" className="contact-footer__legal-link">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="contact-footer__legal-link">Terms of Service</Link>
               <a href="https://maps.google.com/?q=9.872736,78.346081" target="_blank" rel="noopener noreferrer" className="contact-footer__legal-link">Sitemap</a>
             </div>
           </div>
