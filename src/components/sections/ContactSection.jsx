@@ -291,6 +291,7 @@ export default function ContactSection() {
                               {f.icon}
                             </span>
                             <input
+                              id={f.key === 'name' ? 'contact-form-name' : undefined}
                               type={f.type}
                               name={f.key}
                               value={form[f.key]}
