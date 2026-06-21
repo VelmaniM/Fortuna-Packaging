@@ -7,7 +7,6 @@ import { scrollToSection } from '../../utils/scrollTo';
 import './Navbar.css';
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -16,7 +15,6 @@ export default function Navbar() {
     }
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
-  const ticking = useRef(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,19 +27,6 @@ export default function Navbar() {
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-      requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 20);
-        ticking.current = false;
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Handle cross-page scrolling using router state
   useEffect(() => {
@@ -72,13 +57,7 @@ export default function Navbar() {
   };
 
   return (
-    <header
-      className={`navbar transition-colors duration-300 ${
-        scrolled 
-          ? 'navbar--scrolled text-slate-700 dark:text-white dark:border-b dark:border-gray-800' 
-          : 'navbar--transparent text-white'
-      }`}
-    >
+    <header className="navbar transition-colors duration-300 navbar--scrolled text-slate-700 dark:text-white dark:border-b dark:border-gray-800">
       <nav className="navbar__container">
         <div className="navbar__brand group">
           <FortunaLogo size="md" />
