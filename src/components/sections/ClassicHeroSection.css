@@ -48,7 +48,7 @@
 }
 
 .classic-hero__section {
-  @apply relative min-h-[90vh] md:min-h-screen flex items-center bg-white dark:bg-navy-dark overflow-hidden;
+  @apply relative min-h-[90vh] md:min-h-screen flex items-center bg-white dark:bg-black overflow-hidden;
 }
 
 .classic-hero__bg-container {
@@ -60,11 +60,11 @@
 }
 
 .classic-hero__gradient-r {
-  @apply absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent dark:from-navy-dark/95 dark:via-navy-dark/80 dark:to-transparent;
+  @apply absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent dark:from-black/95 dark:via-black/80 dark:to-transparent;
 }
 
 .classic-hero__gradient-t {
-  @apply absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 dark:from-navy-dark dark:via-transparent dark:to-navy-dark/45;
+  @apply absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 dark:from-black dark:via-transparent dark:to-black/45;
 }
 
 .classic-hero__content-area {

@@ -482,7 +482,7 @@ export default function ContactSection() {
           {/* Bottom Bar */}
           <div className="contact-footer__bottom-bar">
             <p className="contact-footer__copyright">
-              © {new Date().getFullYear()} {COMPANY.fullName}. All Rights Reserved. <br className="md:hidden" /> Designed & Developed by <span className="text-navy dark:text-white font-medium">Velmani M</span>
+              © {new Date().getFullYear()} {COMPANY.fullName}. All Rights Reserved. <br className="md:hidden" /> Designed & Developed by <a href="https://velmani-company.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-navy dark:text-white font-medium hover:underline">Velmani M</a>
             </p>
             <div className="contact-footer__legal-links">
               <a href="#" className="contact-footer__legal-link">Privacy Policy</a>
