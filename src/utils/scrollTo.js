@@ -17,6 +17,6 @@ export function scrollToSection(selector) {
       if (nameInput) {
         nameInput.focus({ preventScroll: true });
       }
-    }, 800); // Wait for smooth scroll to finish
+    }, 1200); // Increased timeout to ensure smooth scroll finishes before focusing
   }
 }
