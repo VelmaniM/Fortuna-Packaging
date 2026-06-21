@@ -69,10 +69,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`navbar dark:text-white ${
+      className={`navbar transition-colors duration-300 ${
         scrolled 
-          ? 'navbar--scrolled text-slate-700 dark:border-b dark:border-gray-800' 
-          : 'navbar--transparent text-slate-900 dark:text-white'
+          ? 'navbar--scrolled text-slate-700 dark:text-white dark:border-b dark:border-gray-800' 
+          : 'navbar--transparent text-black'
       }`}
     >
       <nav className="navbar__container">

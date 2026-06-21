@@ -12,16 +12,39 @@ function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Prevent right-clicking on images and videos globally
+  // Stricter privacy measures: prevent right-click, screenshot, copy, drag
   useEffect(() => {
     const handleContextMenu = (e) => {
-      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e) => {
+      // Prevent PrintScreen key
+      if (e.key === 'PrintScreen' || e.keyCode === 44) {
+        navigator.clipboard.writeText('');
+      }
+      // Prevent common copy/print/save shortcuts (Ctrl/Cmd + C, P, S)
+      if ((e.ctrlKey || e.metaKey) && ['c', 'p', 's'].includes(e.key.toLowerCase())) {
         e.preventDefault();
       }
     };
+
+    const preventDefaultAction = (e) => {
+      e.preventDefault();
+    };
+
     document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('copy', preventDefaultAction);
+    document.addEventListener('cut', preventDefaultAction);
+    document.addEventListener('dragstart', preventDefaultAction);
+
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('copy', preventDefaultAction);
+      document.removeEventListener('cut', preventDefaultAction);
+      document.removeEventListener('dragstart', preventDefaultAction);
     };
   }, []);
 

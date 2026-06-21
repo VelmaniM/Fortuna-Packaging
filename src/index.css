@@ -30,6 +30,17 @@ body {
   @apply bg-white dark:bg-black text-slate-700 dark:text-gray-200 transition-colors duration-300;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input, textarea {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
 }
 
 ::selection {
@@ -413,6 +424,8 @@ section {
 
 img {
   content-visibility: auto;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 ::-webkit-scrollbar {
