@@ -72,7 +72,7 @@ export default function Navbar() {
       className={`navbar transition-colors duration-300 ${
         scrolled 
           ? 'navbar--scrolled text-slate-700 dark:text-white dark:border-b dark:border-gray-800' 
-          : 'navbar--transparent text-black'
+          : 'navbar--transparent text-navy dark:text-white'
       }`}
     >
       <nav className="navbar__container">
