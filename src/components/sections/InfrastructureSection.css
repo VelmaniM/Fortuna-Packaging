@@ -1,5 +1,5 @@
 .infrastructure-section {
-  @apply py-16 md:py-24 bg-white dark:bg-navy overflow-hidden;
+  @apply py-16 md:py-24 bg-white dark:bg-black overflow-hidden;
 }
 
 .infrastructure-header {

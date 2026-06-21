@@ -1,5 +1,5 @@
 .products-section {
-  @apply py-16 md:py-24 bg-soft dark:bg-black dark:bg-gray-800;
+  @apply py-16 md:py-24 bg-soft dark:bg-black;
 }
 
 .products-header {
@@ -23,7 +23,7 @@
 }
 
 .product-card {
-  @apply relative w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-slate-300/50 text-left transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(211,47,47,0.15)] border border-slate-200 hover:border-red/30 bg-white dark:bg-black;
+  @apply relative w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-slate-300/50 dark:shadow-none text-left transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(211,47,47,0.15)] border border-slate-200 hover:border-red/30 bg-white dark:bg-black;
 }
 
 .product-card--active {
@@ -211,7 +211,7 @@
   grid-template-columns: 0.9fr 1.1fr;
   overflow: auto;
   border-radius: 0.75rem;
-  @apply bg-white dark:bg-gray-900;
+  @apply bg-white dark:bg-black;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
   animation: product-panel-in 0.24s ease-out both;
 }

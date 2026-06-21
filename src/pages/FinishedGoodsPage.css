@@ -7,7 +7,7 @@
 }
 
 .fg-page__card {
-  @apply bg-white dark:bg-black rounded-3xl p-6 md:p-12 lg:p-16 shadow-xl shadow-slate-200/50 border border-slate-200;
+  @apply bg-white dark:bg-black rounded-3xl p-6 md:p-12 lg:p-16 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-200 dark:border-white/10;
 }
 
 .fg-page__subtitle {
@@ -27,7 +27,7 @@
 }
 
 .fg-item {
-  @apply flex flex-col bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-300;
+  @apply flex flex-col bg-slate-50 dark:bg-black/40 rounded-2xl overflow-hidden border border-slate-100 dark:border-white/5 hover:shadow-2xl hover:shadow-slate-200 dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all duration-300;
 }
 
 .fg-item__image-wrapper {

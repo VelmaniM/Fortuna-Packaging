@@ -7,7 +7,7 @@
 }
 
 .navbar--transparent {
-  @apply bg-white/90 dark:bg-black/90 backdrop-blur-sm py-4;
+  @apply bg-transparent py-4;
 }
 
 .navbar__container {

@@ -124,7 +124,7 @@ export default function RawMaterialPage() {
                 Join industry leaders who trust us to deliver stunning, high-performance packaging that protects products and captivates customers. Let's build something exceptional together.
               </p>
               <button 
-                onClick={() => navigate('/#contact')}
+                onClick={() => navigate('/', { state: { scrollTo: '#contact' } })}
                 className="cta-section__btn"
               >
                 Discuss Your Project <HiArrowRight className="cta-section__btn-icon" size={18} />

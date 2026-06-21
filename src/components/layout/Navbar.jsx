@@ -43,12 +43,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Handle hash scrolling if navigating from another page
+  // Handle cross-page scrolling using router state
   useEffect(() => {
-    if (location.pathname === '/' && location.hash) {
+    if (location.pathname === '/' && location.state?.scrollTo) {
+      // Small delay to ensure the page has rendered before scrolling
       setTimeout(() => {
-        scrollToSection(location.hash);
-      }, 100);
+        scrollToSection(location.state.scrollTo);
+        // Clean up the state to prevent scrolling again on normal re-renders
+        window.history.replaceState({}, document.title);
+      }, 300);
     }
   }, [location]);
 
@@ -58,7 +61,8 @@ export default function Navbar() {
     
     if (href.startsWith('#')) {
       if (location.pathname !== '/') {
-        navigate('/' + href);
+        // Use state to pass the section ID to scroll to after navigating home
+        navigate('/', { state: { scrollTo: href } });
       } else {
         scrollToSection(href);
       }
@@ -72,7 +76,7 @@ export default function Navbar() {
       className={`navbar transition-colors duration-300 ${
         scrolled 
           ? 'navbar--scrolled text-slate-700 dark:text-white dark:border-b dark:border-gray-800' 
-          : 'navbar--transparent text-navy dark:text-white'
+          : 'navbar--transparent text-white'
       }`}
     >
       <nav className="navbar__container">
