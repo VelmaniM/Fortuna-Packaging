@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
-import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
+import { useState, useEffect } from 'react';
+import { HiArrowLeft, HiArrowRight, HiSearch } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
+import './FinishedGoodsPage.css';
 
 const FINISHED_GOODS = [
   { 
@@ -43,73 +44,90 @@ const FINISHED_GOODS = [
 
 export default function FinishedGoodsPage() {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const filteredGoods = FINISHED_GOODS.filter(item => 
+    item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    item.desc.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <main className="min-h-screen bg-soft pt-28 pb-20">
+    <main className="fg-page">
       <div className="section-container">
         <button 
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-red transition-colors mb-8"
+          className="fg-page__back-btn"
         >
           <HiArrowLeft size={16} /> Back
         </button>
 
-        <div className="bg-white rounded-3xl p-6 md:p-12 lg:p-16 shadow-xl shadow-slate-200/50 border border-slate-200">
-          <span className="text-red font-semibold text-xs uppercase tracking-widest mb-3 block">
+        <div className="fg-page__card">
+          <span className="fg-page__subtitle">
             Our Products
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6 tracking-tight">
+          <h1 className="fg-page__title">
             Finished Goods
           </h1>
-          <p className="text-slate-500 leading-relaxed max-w-3xl mb-12 text-lg">
+          <p className="fg-page__desc dark:text-gray-300">
             Explore our comprehensive range of premium flexible packaging solutions, ready to elevate your brand's shelf presence and protect your product's integrity.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {FINISHED_GOODS.map((item) => (
-              <div key={item.id} className="group flex flex-col bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-300">
-                <div className="aspect-square relative overflow-hidden bg-white">
+          <div className="relative my-8 max-w-md">
+            <HiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            <input 
+              type="text" 
+              placeholder="Search products..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-red focus:ring-1 focus:ring-red outline-none transition-all dark:bg-gray-800 dark:border-gray-700"
+            />
+          </div>
+
+          <div className="fg-page__grid">
+            {filteredGoods.map((item) => (
+              <div key={item.id} className="fg-item">
+                <div className="fg-item__image-wrapper">
                   <img 
                     src={item.img} 
                     alt={item.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    className="fg-item__image"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="fg-item__overlay" />
                 </div>
-                <div className="p-6 md:p-8 flex-grow flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-navy mb-3">{item.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                <div className="fg-item__content dark:bg-gray-800">
+                  <h3 className="fg-item__title">{item.title}</h3>
+                  <p className="fg-item__desc dark:text-gray-300">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Interactive CTA Section */}
-          <div className="mt-16 bg-navy-dark rounded-2xl p-8 md:p-12 text-center relative overflow-hidden shadow-2xl">
+          <div className="cta-section">
             {/* Ambient Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red/20 to-transparent opacity-40 pointer-events-none" />
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-red/30 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-sky-400/20 rounded-full blur-[80px] pointer-events-none" />
+            <div className="cta-section__bg-overlay" />
+            <div className="cta-section__glow-1" />
+            <div className="cta-section__glow-2" />
             
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <span className="inline-block bg-white/10 border border-white/20 text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm shadow-sm">
+            <div className="cta-section__content">
+              <span className="cta-section__badge">
                 Partner With Fortuna
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-4 tracking-tight leading-tight">
+              <h2 className="cta-section__title">
                 Ready to Elevate Your Packaging?
               </h2>
-              <p className="text-slate-300 text-base md:text-lg mb-8 font-medium leading-relaxed">
+              <p className="cta-section__desc">
                 Join industry leaders who trust us to deliver stunning, high-performance packaging that protects products and captivates customers. Let's build something exceptional together.
               </p>
               <button 
                 onClick={() => navigate('/#contact')}
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-red to-red-hover text-white font-bold tracking-widest uppercase text-sm rounded-xl hover:shadow-[0_0_30px_rgba(211,47,47,0.4)] hover:-translate-y-1 transition-all duration-300 group"
+                className="cta-section__btn"
               >
-                Discuss Your Project <HiArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" size={18} />
+                Discuss Your Project <HiArrowRight className="cta-section__btn-icon" size={18} />
               </button>
             </div>
           </div>

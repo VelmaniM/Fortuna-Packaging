@@ -1,0 +1,95 @@
+.fg-page {
+  @apply min-h-screen bg-soft dark:bg-black pt-28 pb-20;
+}
+
+.fg-page__back-btn {
+  @apply flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-red transition-colors mb-8;
+}
+
+.fg-page__card {
+  @apply bg-white dark:bg-black rounded-3xl p-6 md:p-12 lg:p-16 shadow-xl shadow-slate-200/50 border border-slate-200;
+}
+
+.fg-page__subtitle {
+  @apply text-red font-semibold text-xs uppercase tracking-widest mb-3 block;
+}
+
+.fg-page__title {
+  @apply text-4xl md:text-5xl font-bold text-navy dark:text-white mb-6 tracking-tight;
+}
+
+.fg-page__desc {
+  @apply text-slate-500 leading-relaxed max-w-3xl mb-12 text-lg;
+}
+
+.fg-page__grid {
+  @apply grid md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.fg-item {
+  @apply flex flex-col bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-300;
+}
+
+.fg-item__image-wrapper {
+  @apply aspect-square relative overflow-hidden bg-white dark:bg-black;
+}
+
+.fg-item__image {
+  @apply w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700;
+}
+
+.fg-item__overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.fg-item__content {
+  @apply p-6 md:p-8 flex-grow flex flex-col justify-center;
+}
+
+.fg-item__title {
+  @apply text-xl font-bold text-navy dark:text-white mb-3;
+}
+
+.fg-item__desc {
+  @apply text-sm text-slate-500 leading-relaxed font-medium;
+}
+
+.cta-section {
+  @apply mt-16 bg-navy-dark dark:bg-black rounded-2xl p-8 md:p-12 text-center relative overflow-hidden shadow-2xl;
+}
+
+.cta-section__bg-overlay {
+  @apply absolute inset-0 bg-gradient-to-br from-red/20 to-transparent opacity-40 pointer-events-none;
+}
+
+.cta-section__glow-1 {
+  @apply absolute -top-20 -right-20 w-64 h-64 bg-red/30 rounded-full blur-[80px] pointer-events-none;
+}
+
+.cta-section__glow-2 {
+  @apply absolute -bottom-20 -left-20 w-64 h-64 bg-sky-400/20 rounded-full blur-[80px] pointer-events-none;
+}
+
+.cta-section__content {
+  @apply relative z-10 max-w-2xl mx-auto;
+}
+
+.cta-section__badge {
+  @apply inline-block bg-white dark:bg-black/10 border border-white/20 text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm shadow-sm;
+}
+
+.cta-section__title {
+  @apply text-3xl md:text-4xl font-bold font-display text-white mb-4 tracking-tight leading-tight;
+}
+
+.cta-section__desc {
+  @apply text-slate-300 text-base md:text-lg mb-8 font-medium leading-relaxed;
+}
+
+.cta-section__btn {
+  @apply inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-red to-red-hover text-white font-bold tracking-widest uppercase text-sm rounded-xl hover:shadow-[0_0_30px_rgba(211,47,47,0.4)] hover:-translate-y-1 transition-all duration-300;
+}
+
+.cta-section__btn-icon {
+  @apply ml-2 transform group-hover:translate-x-1 transition-transform;
+}

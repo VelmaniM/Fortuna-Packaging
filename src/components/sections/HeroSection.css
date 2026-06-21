@@ -107,3 +107,79 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+.hero-section {
+  @apply relative min-h-[90vh] md:min-h-screen flex items-center bg-navy-dark dark:bg-black overflow-hidden;
+}
+
+.hero-section__bg-container {
+  @apply absolute inset-0 z-0;
+}
+
+.hero-section__bg-image {
+  @apply w-full h-full object-cover scale-105 transition-transform duration-1000 group-hover:scale-100 contrast-[1.05] brightness-[1.05];
+}
+
+.hero-section__bg-gradient--left {
+  @apply absolute top-0 bottom-0 left-0 w-[80%] md:w-[50%] bg-gradient-to-r from-navy-dark/80 to-transparent pointer-events-none;
+}
+
+.hero-section__bg-gradient--right {
+  @apply absolute top-0 bottom-0 right-0 w-[80%] md:w-[50%] bg-gradient-to-l from-navy-dark/80 to-transparent pointer-events-none;
+}
+
+.hero-section__content-area--left {
+  @apply relative z-10 w-[50%] md:w-full h-full flex flex-col justify-center items-start pl-4 sm:pl-10 md:pl-20 lg:pl-32 pt-20 pr-2 md:pr-0;
+}
+
+.hero-section__content-area--right {
+  @apply relative z-10 w-[50%] md:w-full h-full flex flex-col justify-center items-end pr-4 sm:pr-10 md:pr-20 lg:pr-32 pt-20 text-right ml-auto pl-2 md:pl-0;
+}
+
+.hero-section__tag {
+  @apply inline-flex items-center gap-1.5 bg-white/20 dark:bg-black/40 border border-white/30 rounded-full px-2 py-1 sm:px-4 sm:py-1.5 mb-2 sm:mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.5)] backdrop-blur-md;
+}
+
+.hero-section__tag-text {
+  @apply text-[8px] sm:text-[10px] font-extrabold text-white uppercase tracking-widest leading-none drop-shadow-md;
+}
+
+.hero-section__title {
+  @apply text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight font-display mb-2 sm:mb-4 tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)];
+}
+
+.hero-section__title-highlight--red {
+  @apply text-red drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)];
+}
+
+.hero-section__title-highlight--slate {
+  @apply text-slate-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)];
+}
+
+.hero-section__description {
+  @apply hidden md:block text-white text-sm md:text-base leading-relaxed mb-6 font-medium max-w-sm drop-shadow-[0_2px_10px_rgba(0,0,0,1)];
+}
+
+.hero-section__btn-primary {
+  @apply inline-flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-8 py-2 sm:py-3.5 bg-red text-white font-bold tracking-widest uppercase text-[10px] sm:text-xs rounded-full hover:bg-red-hover hover:shadow-[0_0_20px_rgba(211,47,47,0.5)] hover:-translate-y-0.5 transition-all duration-300 mt-2 whitespace-nowrap;
+}
+
+.hero-section__btn-secondary {
+  @apply inline-flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-8 py-2 sm:py-3.5 bg-white/10 dark:bg-black/30 border border-white/20 text-white font-bold tracking-widest uppercase text-[10px] sm:text-xs rounded-full hover:bg-white/20 dark:hover:bg-black/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300 mt-2 whitespace-nowrap;
+}
+
+.hero-section__button-icon {
+  @apply transform transition-transform;
+}
+
+.hero-section__button-icon--reverse {
+  @apply transform rotate-180 group-hover:-translate-x-1 transition-transform;
+}
+
+.hero-section__orb--red {
+  @apply absolute top-20 right-10 w-[35rem] h-[35rem] bg-red/10 rounded-full filter blur-[130px] select-none pointer-events-none animate-pulse transition-opacity duration-500;
+}
+
+.hero-section__orb--green {
+  @apply absolute -bottom-20 left-10 w-[30rem] h-[30rem] bg-emerald-500/5 rounded-full filter blur-[150px] select-none pointer-events-none animate-pulse transition-opacity duration-500;
+}

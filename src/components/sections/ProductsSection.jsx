@@ -43,15 +43,15 @@ export default function ProductsSection() {
   }, [selectedProduct]);
 
   return (
-    <section id="products" className="section-padding bg-soft">
+    <section id="products" className="products-section">
       <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-red font-semibold text-sm uppercase tracking-widest">We Produce</span>
-          <h2 className="heading-xl mt-3">
+        <div className="products-header">
+          <span className="products-header__label">We Produce</span>
+          <h2 className="products-header__title">
             Wide Range of Flexible Packaging{' '}
-            <span className="text-red-accent">Solutions</span>
+            <span className="products-header__title-highlight">Solutions</span>
           </h2>
-          <p className="text-silver mt-4 leading-relaxed">
+          <p className="products-header__description">
             From stand-up pouches to shrink sleeves — engineered for performance, shelf appeal, and brand impact.
           </p>
         </div>
@@ -71,17 +71,17 @@ export default function ProductsSection() {
               <div key={product.id} className="product-card-shell h-[20rem] w-full">
                 <button
                   type="button"
-                  className={`relative w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-slate-300/50 group text-left transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(211,47,47,0.15)] border border-slate-200 hover:border-red/30 bg-white ${selectedProduct?.id === product.id ? ' ring-2 ring-red shadow-[0_20px_40px_rgba(211,47,47,0.25)] border-transparent' : ''}`}
+                  className={`product-card ${selectedProduct?.id === product.id ? 'product-card--active' : ''}`}
                   onClick={() => setSelectedProduct((current) => (current?.id === product.id ? null : product))}
                   aria-label={`View details for ${product.name}`}
                   aria-expanded={selectedProduct?.id === product.id}
                 >
                   {/* Centered, Uncropped, Maximum-Clarity Image Container */}
-                  <div className="w-full h-[calc(100%-80px)] flex items-center justify-center p-8 bg-transparent select-none">
+                  <div className="product-card__image-container">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      className="product-card__image"
                       width={300}
                       height={300}
                       loading="lazy"
@@ -90,41 +90,41 @@ export default function ProductsSection() {
                   </div>
 
                   {/* Elegant Sliding Drawer Container */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-navy-dark/95 backdrop-blur-md border-t border-white/10 p-5 md:p-6 z-10 transition-all duration-300 ease-out translate-y-[calc(100%-80px)] group-hover:translate-y-0">
+                  <div className="product-card__drawer">
                     
                     {/* Header part - always visible by default */}
-                    <div className="flex justify-between items-center mb-4">
+                    <div className="product-card__drawer-header">
                       <div>
-                        <span className="text-[10px] text-red font-bold uppercase tracking-widest block mb-1">
+                        <span className="product-card__brand-label">
                           Fortuna Packaging
                         </span>
-                        <h3 className="font-bold text-white text-lg md:text-xl tracking-tight">
+                        <h3 className="product-card__title">
                           {product.name}
                         </h3>
                       </div>
-                      <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-red transition-all duration-300 flex-shrink-0">
-                        <HiChevronRight size={18} className="transform group-hover:rotate-90 transition-transform duration-300" />
+                      <span className="product-card__icon-wrapper">
+                        <HiChevronRight size={18} className="product-card__icon" />
                       </span>
                     </div>
 
                     {/* Expandable content revealed on hover */}
-                    <div className="space-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
-                      <p className="text-xs md:text-sm text-slate-300 leading-relaxed font-light">
+                    <div className="product-card__content">
+                      <p className="product-card__description">
                         {product.description}
                       </p>
                       
                       {/* Application tags for premium context & interaction */}
-                      <div className="flex flex-wrap gap-1.5 pt-1">
+                      <div className="product-card__tags">
                         {product.applications.slice(0, 3).map((app) => (
-                          <span key={app} className="text-[10px] bg-white/10 text-slate-200 px-2 py-0.5 rounded font-medium border border-white/5">
+                          <span key={app} className="product-card__tag">
                             {app}
                           </span>
                         ))}
                       </div>
 
-                      <div className="pt-2 border-t border-white/5">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-red hover:text-red-hover transition-colors duration-200">
-                          View Full Details <HiArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
+                      <div className="product-card__footer">
+                        <span className="product-card__link">
+                          View Full Details <HiArrowRight size={14} className="product-card__link-icon" />
                         </span>
                       </div>
                     </div>
@@ -144,7 +144,7 @@ export default function ProductsSection() {
           </button>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-3" aria-label="Product page selector">
+        <div className="products-pagination" aria-label="Product page selector">
           {productPages.map((page, index) => (
             <button
               key={page[0].id}
@@ -187,16 +187,16 @@ export default function ProductsSection() {
             </div>
 
             <div className="product-modal__content">
-              <span className="text-red font-semibold text-xs uppercase tracking-widest">Product Detail</span>
-              <h3 id="product-modal-title" className="text-3xl font-bold text-navy mt-3 mb-4">
+              <span className="product-modal__title-wrapper">Product Detail</span>
+              <h3 id="product-modal-title" className="product-modal__title">
                 {selectedProduct.name}
               </h3>
-              <p className="text-silver leading-relaxed mb-6">{selectedProduct.detail}</p>
+              <p className="product-modal__description">{selectedProduct.detail}</p>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="product-modal__grid">
                 <div>
-                  <h4 className="font-bold text-navy mb-3">Applications</h4>
-                  <ul className="space-y-2">
+                  <h4 className="product-modal__list-title">Applications</h4>
+                  <ul className="product-modal__list">
                     {selectedProduct.applications.map((item) => (
                       <li key={item} className="product-modal__list-item">
                         {item}
@@ -205,8 +205,8 @@ export default function ProductsSection() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold text-navy mb-3">Key Features</h4>
-                  <ul className="space-y-2">
+                  <h4 className="product-modal__list-title">Key Features</h4>
+                  <ul className="product-modal__list">
                     {selectedProduct.features.map((item) => (
                       <li key={item} className="product-modal__list-item">
                         {item}

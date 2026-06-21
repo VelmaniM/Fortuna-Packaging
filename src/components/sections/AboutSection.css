@@ -1,1 +1,65 @@
 /* About Section component styles */
+
+.about-section {
+  @apply py-16 md:py-24 bg-white dark:bg-black;
+}
+
+.about-section__layout {
+  @apply grid lg:grid-cols-2 gap-12 lg:gap-20 items-center;
+}
+
+.about-section__subtitle {
+  @apply text-red font-semibold text-sm uppercase tracking-widest;
+}
+
+.about-section__title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy dark:text-white leading-tight mt-3 mb-6;
+}
+
+.about-section__title-highlight {
+  @apply text-red;
+}
+
+.about-section__description {
+  @apply text-silver dark:text-gray-300 leading-relaxed mb-10 text-left;
+}
+
+.about-section__features {
+  @apply grid sm:grid-cols-2 gap-6;
+}
+
+.about-section__feature {
+  @apply flex gap-4;
+}
+
+.about-section__feature-icon-wrapper--red {
+  @apply w-12 h-12 rounded-lg bg-red/10 flex items-center justify-center flex-shrink-0;
+}
+
+.about-section__feature-icon--red {
+  @apply text-red;
+}
+
+.about-section__feature-icon-wrapper--navy {
+  @apply w-12 h-12 rounded-lg bg-navy dark:bg-black/10 flex items-center justify-center flex-shrink-0;
+}
+
+.about-section__feature-icon--navy {
+  @apply text-white;
+}
+
+.about-section__feature-title {
+  @apply font-semibold text-navy dark:text-white mb-2;
+}
+
+.about-section__feature-text {
+  @apply text-sm text-silver dark:text-gray-300 leading-relaxed text-left;
+}
+
+.about-section__image-container {
+  @apply rounded-2xl overflow-hidden shadow-card aspect-[4/3];
+}
+
+.about-section__image {
+  @apply w-full h-full object-cover;
+}

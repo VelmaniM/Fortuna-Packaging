@@ -2,14 +2,15 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import './LoadingScreen.css';
 
 const LOADER_EXIT_MS = 300;
-// Safety fallback timer increased to 10 seconds. This allows the video animation to play fully to
-// completion, but guarantees the loading screen will still dismiss if autoplay is blocked by the browser.
-const LOADER_MAX_MS = 10000;
+// Safety fallback timer set to 12 seconds to ensure the video has plenty of time
+// to download and play fully on all browsers before forcefully dismissing.
+const LOADER_MAX_MS = 12000;
 
 export default function LoadingScreen({ onComplete }) {
   const [exiting, setExiting] = useState(false);
   const completedRef = useRef(false);
   const fallbackTimerRef = useRef(null);
+  const videoRef = useRef(null);
 
   const finishLoading = useCallback(() => {
     if (completedRef.current) return;
@@ -25,38 +26,46 @@ export default function LoadingScreen({ onComplete }) {
     return () => window.clearTimeout(fallbackTimerRef.current);
   }, [finishLoading]);
 
-  const handleVideoReady = useCallback((event) => {
-    const video = event.currentTarget;
+  useEffect(() => {
+    // Attempt to force play for Safari which sometimes ignores autoPlay attribute
+    if (videoRef.current) {
+      // Fix React bug where muted attribute doesn't satisfy Safari's strict autoplay policy
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        // Ignored. If play fails, the loader will naturally dismiss after LOADER_MAX_MS.
+      });
+    }
+  }, [finishLoading]);
 
-    video.currentTime = 0;
-    video.play().catch(() => {});
-  }, []);
-
-  const handleVideoError = useCallback(() => {
-    window.setTimeout(finishLoading, 1200);
+  const handleVideoError = useCallback((event) => {
+    // Only fire error fallback if the <video> itself errors, ignoring <source> fallback errors
+    if (event.target === event.currentTarget) {
+      window.setTimeout(finishLoading, 1200);
+    }
   }, [finishLoading]);
 
   return (
     <div
-      className={`fixed inset-0 z-[10000] grid place-items-center overflow-hidden bg-white px-6 ${exiting ? 'loader-exit' : ''}`}
+      className={`loading-screen ${exiting ? 'loader-exit' : ''}`}
       role="status"
       aria-label="Loading"
     >
-      <div className="loader-content flex w-full max-w-[31rem] flex-col items-center justify-center text-center">
-        <div className="mb-5 grid h-[18rem] w-[18rem] place-items-center sm:h-[21rem] sm:w-[21rem] md:h-[23rem] md:w-[23rem]">
+      <div className="loader-content loading-screen__content">
+        <div className="loading-screen__video-wrapper">
           <video
-            className="h-full w-full object-contain drop-shadow-[0_18px_36px_rgba(0,31,63,0.10)]"
+            ref={videoRef}
+            className="loading-screen__video"
             autoPlay
             muted
             playsInline
             preload="auto"
             aria-label="Fortuna logo animation"
-            onLoadedMetadata={handleVideoReady}
             onEnded={finishLoading}
             onError={handleVideoError}
           >
             {/* Safari/iOS native HEVC with alpha */}
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type='video/mp4; codecs="hvc1"' />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type="video/mp4" />
             {/* Chrome/Android WebM with alpha */}
             <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.webm" type="video/webm" />
           </video>
@@ -65,7 +74,7 @@ export default function LoadingScreen({ onComplete }) {
         <img
           src="/Fortuna-Packaging/images/fortuna-wordmark-transparent.png"
           alt="Fortuna - Impress With Impressions"
-          className="w-full max-w-[20rem] object-contain drop-shadow-[0_12px_24px_rgba(0,31,63,0.07)] sm:max-w-[24rem] md:max-w-[27rem]"
+          className="loading-screen__wordmark"
         />
       </div>
     </div>

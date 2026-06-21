@@ -139,155 +139,155 @@ export default function ContactSection() {
   };
 
   return (
-    <footer id="contact" className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-800">
+    <footer id="contact" className="contact-section">
       {/* Background Image Layer - Spans the contact section softly */}
-      <div className="contact-background absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.14] scale-[1.02] select-none pointer-events-none" />
+      <div className="contact-background contact-section__bg-layer" />
       
       {/* Premium white glass overlay sheet */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-50/90 via-white/80 to-slate-50/95 backdrop-blur-[5px] pointer-events-none" />
+      <div className="contact-section__glass-overlay" />
 
       {/* Dynamic light-grid matrix backdrop */}
-      <div className="contact-grid-overlay absolute inset-0 select-none pointer-events-none opacity-40 z-0" />
+      <div className="contact-grid-overlay contact-section__grid-overlay" />
       
       {/* Floating ultra-premium glowing ambient orbs (soft pastel light colors) */}
-      <div className="absolute -top-40 -left-40 w-[35rem] h-[35rem] bg-sky-400/5 rounded-full filter blur-[120px] select-none pointer-events-none z-0 animate-pulse contact-pulse-sky" />
-      <div className="absolute top-1/2 left-1/3 w-[30rem] h-[30rem] bg-navy/5 rounded-full filter blur-[150px] select-none pointer-events-none z-0" />
-      <div className="absolute -bottom-20 -right-20 w-[40rem] h-[40rem] bg-red/5 rounded-full filter blur-[160px] select-none pointer-events-none z-0 animate-pulse contact-pulse-red" />
+      <div className="contact-pulse-sky contact-section__orb-sky" />
+      <div className="contact-section__orb-navy" />
+      <div className="contact-pulse-red contact-section__orb-red" />
 
-      <section className="py-12 md:py-16 relative z-10 border-t border-slate-200/50">
+      <section className="contact-section__content">
         <div className="section-container">
-          <div className="text-center lg:text-left mb-10 reveal">
-            <span className="inline-flex items-center gap-2 bg-red/10 border border-red/20 text-red font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-red animate-pulse" />
+          <div className="contact-section__header reveal">
+            <span className="contact-section__tag">
+              <span className="contact-section__tag-icon" />
               Contact
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-navy mt-4 tracking-tight leading-tight">
-              Get in Touch With <span className="bg-gradient-to-r from-red to-red-hover bg-clip-text text-transparent">Us</span>
+            <h2 className="contact-section__title">
+              Get in Touch With <span className="contact-section__title-highlight">Us</span>
             </h2>
-            <p className="text-slate-500 text-sm md:text-base mt-2 max-w-xl font-medium">
+            <p className="contact-section__description">
               Have questions about our packaging solutions or custom orders? Our team of specialists is standing by to assist you.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-stretch">
+          <div className="contact-section__grid">
             {/* Left Column: Interactive Contact Dashboard - Combined into a single cohesive card with zero empty vertical gaps */}
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,31,63,0.03)] border border-slate-200/60 p-8 hover:border-slate-200/80 transition-all duration-300 reveal flex flex-col justify-start gap-6">
+            <div className="contact-card reveal">
               <div>
-                <h3 className="text-xl font-bold text-navy mb-5 tracking-tight">Contact Information</h3>
+                <h3 className="contact-card__title">Contact Information</h3>
                 
-                <div className="space-y-4 pb-5 border-b border-slate-200/50">
+                <div className="contact-card__group">
                   {/* Phone Row */}
-                  <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-3 group">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red to-red-hover text-white flex items-center justify-center shrink-0 shadow-md shadow-red/10 transition-transform duration-300 group-hover:scale-105">
+                  <a href={`tel:${COMPANY.phone}`} className="contact-card__row">
+                    <div className="contact-card__row-icon">
                       <HiPhone size={18} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Phone</p>
-                      <p className="text-sm font-semibold text-navy">{COMPANY.phone}</p>
+                      <p className="contact-card__row-label">Phone</p>
+                      <p className="contact-card__row-value">{COMPANY.phone}</p>
                     </div>
                   </a>
 
                   {/* Email Row */}
-                  <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 group">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red to-red-hover text-white flex items-center justify-center shrink-0 shadow-md shadow-red/10 transition-transform duration-300 group-hover:scale-105">
+                  <a href={`mailto:${COMPANY.email}`} className="contact-card__row">
+                    <div className="contact-card__row-icon">
                       <HiMail size={18} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Email</p>
-                      <p className="text-sm font-semibold text-navy hover:text-red transition-colors">{COMPANY.email}</p>
+                      <p className="contact-card__row-label">Email</p>
+                      <p className="contact-card__row-value--hover">{COMPANY.email}</p>
                     </div>
                   </a>
 
                   {/* Website Row */}
-                  <div className="flex items-center gap-3 group">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red to-red-hover text-white flex items-center justify-center shrink-0 shadow-md shadow-red/10 transition-transform duration-300 group-hover:scale-105">
+                  <div className="contact-card__row group">
+                    <div className="contact-card__row-icon">
                       <HiGlobe size={18} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Website</p>
-                      <p className="text-sm font-semibold text-navy">{COMPANY.website}</p>
+                      <p className="contact-card__row-label">Website</p>
+                      <p className="contact-card__row-value">{COMPANY.website}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Office & Factory Address section inside the same card */}
-              <div className="space-y-4 pb-5 border-b border-slate-200/50">
+              <div className="contact-card__group">
                 {/* Corporate Office */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red to-red-hover text-white flex items-center justify-center shrink-0 mt-0.5 shadow-md shadow-red/10 transition-transform duration-300 group-hover:scale-105">
+                <div className="contact-card__location-row group">
+                  <div className="contact-card__location-icon">
                     <HiLocationMarker size={18} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Corporate Office</h4>
-                    <p className="text-slate-600 text-sm leading-relaxed font-semibold">{COMPANY.corporate}</p>
+                    <h4 className="contact-card__location-label">Corporate Office</h4>
+                    <p className="contact-card__location-value">{COMPANY.corporate}</p>
                   </div>
                 </div>
 
                 {/* Factory */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red to-red-hover text-white flex items-center justify-center shrink-0 mt-0.5 shadow-md shadow-red/10 transition-transform duration-300 group-hover:scale-105">
+                <div className="contact-card__location-row group">
+                  <div className="contact-card__location-icon">
                     <HiLocationMarker size={18} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Production Plant</h4>
-                    <p className="text-slate-600 text-sm leading-relaxed font-semibold">{COMPANY.factory}</p>
+                    <h4 className="contact-card__location-label">Production Plant</h4>
+                    <p className="contact-card__location-value">{COMPANY.factory}</p>
                   </div>
                 </div>
               </div>
 
               {/* Operating Hours - Anchors the bottom cleanly and clears unnecessary vertical gaps */}
-              <div className="flex items-center gap-4 group">
-                <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="contact-card__hours-row group">
+                <div className="contact-card__hours-icon">
                   <HiClock size={18} />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5">Operating Hours</h4>
-                  <p className="text-slate-600 text-xs leading-normal font-semibold">24 Hours / 7 Days a Week</p>
+                  <h4 className="contact-card__hours-label">Operating Hours</h4>
+                  <p className="contact-card__hours-value">24 Hours / 7 Days a Week</p>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Premium Modern Message Form or Success Feedback Card */}
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,31,63,0.05)] border border-slate-200/60 p-8 md:p-10 hover:border-slate-200/80 transition-all duration-300 relative overflow-hidden reveal flex flex-col justify-between">
+            <div className="contact-form__card reveal">
               {/* Soft glow flare inside card */}
-              <div className="absolute -top-12 -right-12 w-32 h-32 bg-red/5 rounded-full blur-[40px] pointer-events-none" />
+              <div className="contact-form__glow" />
 
               {submitted ? (
                 /* Gorgeous Premium Success State with bounce animated checkmark */
-                <div className="h-full flex flex-col items-center justify-center text-center py-10 px-4 animate-fadeIn select-none">
-                  <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/10 animate-bounce">
+                <div className="contact-form__success-container">
+                  <div className="contact-form__success-icon-wrapper">
                     <HiCheck size={32} strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-2xl font-bold text-navy mb-3 tracking-tight">Message Sent!</h3>
-                  <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-sm font-semibold">
+                  <h3 className="contact-form__success-title">Message Sent!</h3>
+                  <p className="contact-form__success-text">
                     Thank you for reaching out. A packaging expert from our team will contact you shortly to discuss your custom specifications.
                   </p>
                   <button 
                     onClick={() => setSubmitted(false)}
-                    className="mt-8 px-6 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 font-bold hover:bg-slate-100 hover:text-navy transition-all duration-200 text-xs uppercase tracking-wider shadow-sm cursor-pointer"
+                    className="contact-form__success-button"
                   >
                     Send Another Message
                   </button>
                 </div>
               ) : (
                 /* Elegant Inputs with clientside validation and real-time touched error styling */
-                <form onSubmit={handleSubmit} noValidate className="h-full flex flex-col justify-between">
+                <form onSubmit={handleSubmit} noValidate className="contact-form__form">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-navy mb-6 tracking-tight flex items-center gap-2">
+                    <h3 className="contact-form__title">
                       Send Us a Message
                     </h3>
                     
-                    <div className="space-y-4">
+                    <div className="contact-form__fields">
                       {[
                         { key: 'name', label: 'Full Name', type: 'text', placeholder: 'Your name', icon: <HiUser size={14} /> },
                         { key: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com', icon: <HiMail size={14} /> },
                         { key: 'phone', label: 'Phone Number (Optional)', type: 'tel', placeholder: '+91 ', icon: <HiPhone size={14} /> },
                       ].map((f) => (
-                        <div key={f.key} className="space-y-1.5">
-                          <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest">{f.label}</label>
-                          <div className="relative group">
-                            <span className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors duration-300 ${errors[f.key] && touched[f.key] ? 'text-red' : 'text-slate-400 group-focus-within:text-red'}`}>
+                        <div key={f.key} className="contact-form__field-group">
+                          <label className="contact-form__label">{f.label}</label>
+                          <div className="contact-form__input-wrapper group">
+                            <span className={`contact-form__input-icon ${errors[f.key] && touched[f.key] ? 'text-red' : 'text-slate-400 group-focus-within:text-red'}`}>
                               {f.icon}
                             </span>
                             <input
@@ -300,7 +300,7 @@ export default function ContactSection() {
                               maxLength={f.key === 'phone' ? 10 : undefined}
                               inputMode={f.key === 'phone' ? 'numeric' : undefined}
                               pattern={f.key === 'phone' ? '[0-9]*' : undefined}
-                              className={`w-full pl-12 pr-4 py-3 rounded-xl border bg-slate-50/50 text-navy outline-none focus:bg-white focus:ring-4 transition-all duration-300 font-semibold text-sm ${
+                              className={`contact-form__input ${
                                 errors[f.key] && touched[f.key]
                                   ? 'border-red/60 focus:border-red focus:ring-red/10'
                                   : 'border-slate-200/80 focus:border-red focus:ring-red/10'
@@ -308,17 +308,17 @@ export default function ContactSection() {
                             />
                           </div>
                           {errors[f.key] && touched[f.key] && (
-                            <p className="text-[11px] text-red font-semibold mt-1 flex items-center gap-1 select-none">
+                            <p className="contact-form__error-text">
                               <span>⚠</span> {errors[f.key]}
                             </p>
                           )}
                         </div>
                       ))}
                       
-                      <div className="space-y-1.5">
-                        <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest">Message</label>
-                        <div className="relative group">
-                          <span className={`absolute left-4 top-[14px] transition-colors duration-300 ${errors.message && touched.message ? 'text-red' : 'text-slate-400 group-focus-within:text-red'}`}>
+                      <div className="contact-form__field-group">
+                        <label className="contact-form__label">Message</label>
+                        <div className="contact-form__input-wrapper group">
+                          <span className={`contact-form__input-icon--textarea ${errors.message && touched.message ? 'text-red' : 'text-slate-400 group-focus-within:text-red'}`}>
                             <HiChat size={14} />
                           </span>
                           <textarea
@@ -328,7 +328,7 @@ export default function ContactSection() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             placeholder="How can we help with your packaging needs?"
-                            className={`w-full pl-12 pr-4 py-3 rounded-xl border bg-slate-50/50 text-navy outline-none focus:bg-white focus:ring-4 transition-all duration-300 resize-none font-semibold text-sm min-h-[90px] ${
+                            className={`contact-form__textarea ${
                               errors.message && touched.message
                                 ? 'border-red/60 focus:border-red focus:ring-red/10'
                                 : 'border-slate-200/80 focus:border-red focus:ring-red/10'
@@ -336,7 +336,7 @@ export default function ContactSection() {
                           />
                         </div>
                         {errors.message && touched.message && (
-                          <p className="text-[11px] text-red font-semibold mt-1 flex items-center gap-1 select-none">
+                          <p className="contact-form__error-text">
                             <span>⚠</span> {errors.message}
                           </p>
                         )}
@@ -345,7 +345,7 @@ export default function ContactSection() {
                   </div>
 
                   {apiError && (
-                    <div className="mt-4 p-3 rounded-lg bg-red/10 border border-red/20 text-red text-sm font-semibold flex items-center justify-center">
+                    <div className="contact-form__api-error">
                       ⚠ {apiError}
                     </div>
                   )}
@@ -353,10 +353,10 @@ export default function ContactSection() {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className={`w-full py-3.5 rounded-xl bg-gradient-to-r from-red to-red-hover text-white font-bold tracking-wider hover:shadow-[0_0_30px_rgba(211,47,47,0.35)] hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group mt-5 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
+                    className={`contact-form__submit-button group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
                   >
-                    {!isSubmitting && <div className="absolute inset-0 bg-gradient-to-r from-rose-500 via-red to-red-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300" />}
-                    <span className="relative z-10 flex items-center justify-center gap-2 text-sm uppercase tracking-wider">
+                    {!isSubmitting && <div className="contact-form__submit-gradient" />}
+                    <span className="contact-form__submit-content">
                       {isSubmitting ? (
                         <>
                           <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -381,34 +381,34 @@ export default function ContactSection() {
       </section>
 
       {/* Footer Base - Styled in standard corporate Navy dark */}
-      <div className="bg-navy pt-16 pb-8 relative z-10 border-t border-slate-200/10">
+      <div className="contact-footer">
         <div className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          <div className="contact-footer__grid">
             {/* Column 1: Brand & About */}
-            <div className="space-y-4">
+            <div className="contact-footer__brand-col">
               <FortunaLogo size="md" light showTagline />
-              <p className="text-slate-400 text-sm leading-relaxed mt-4 pr-4">
+              <p className="contact-footer__brand-desc">
                 Delivering state-of-the-art flexible packaging solutions for global brands. Precision, quality, and innovation in every layer.
               </p>
               
               {/* Social Media Icons */}
-              <div className="flex items-center gap-3 mt-6">
-                <a href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#0077b5] hover:text-white transition-all duration-300 shadow-md">
+              <div className="contact-footer__socials">
+                <a href="#" className="contact-footer__social-link hover:bg-[#0077b5] hover:text-white">
                   <FaLinkedinIn size={14} />
                 </a>
-                <a href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#E1306C] hover:text-white transition-all duration-300 shadow-md">
+                <a href="#" className="contact-footer__social-link hover:bg-[#E1306C] hover:text-white">
                   <FaInstagram size={14} />
                 </a>
-                <a href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-md">
+                <a href="#" className="contact-footer__social-link hover:bg-[#25D366] hover:text-white">
                   <FaWhatsapp size={14} />
                 </a>
-                <a href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#FF0000] hover:text-white transition-all duration-300 shadow-md">
+                <a href="#" className="contact-footer__social-link hover:bg-[#FF0000] hover:text-white">
                   <FaYoutube size={14} />
                 </a>
-                <a href={`mailto:${COMPANY.email}`} className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-red hover:text-white transition-all duration-300 shadow-md">
+                <a href={`mailto:${COMPANY.email}`} className="contact-footer__social-link hover:bg-red hover:text-white">
                   <HiMail size={16} />
                 </a>
-                <a href={`tel:${COMPANY.phone}`} className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-500 hover:text-white transition-all duration-300 shadow-md">
+                <a href={`tel:${COMPANY.phone}`} className="contact-footer__social-link hover:bg-emerald-500 hover:text-white">
                   <HiPhone size={16} />
                 </a>
               </div>
@@ -416,8 +416,8 @@ export default function ContactSection() {
 
             {/* Column 2: Quick Links */}
             <div>
-              <h4 className="text-white font-bold mb-5 tracking-wide uppercase text-xs">Company</h4>
-              <ul className="space-y-3">
+              <h4 className="contact-footer__col-title">Company</h4>
+              <ul className="contact-footer__link-list">
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
                     <a
@@ -426,9 +426,9 @@ export default function ContactSection() {
                         e.preventDefault();
                         scrollToSection(link.href);
                       }}
-                      className="text-sm text-slate-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                      className="contact-footer__link"
                     >
-                      <HiArrowRight size={12} className="text-red opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      <HiArrowRight size={12} className="contact-footer__link-icon" />
                       {link.label}
                     </a>
                   </li>
@@ -438,8 +438,8 @@ export default function ContactSection() {
 
             {/* Column 3: Products */}
             <div>
-              <h4 className="text-white font-bold mb-5 tracking-wide uppercase text-xs">Products</h4>
-              <ul className="space-y-3">
+              <h4 className="contact-footer__col-title">Products</h4>
+              <ul className="contact-footer__link-list">
                 {['Wrap Around Labels', 'Standup Pouches', 'Shrink Sleeves', 'Center Seal Pouches', 'Laminated Films', 'Zipper Pouches'].map((product) => (
                   <li key={product}>
                     <a
@@ -448,9 +448,9 @@ export default function ContactSection() {
                         e.preventDefault();
                         scrollToSection('#products');
                       }}
-                      className="text-sm text-slate-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                      className="contact-footer__link"
                     >
-                      <HiArrowRight size={12} className="text-red opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      <HiArrowRight size={12} className="contact-footer__link-icon" />
                       {product}
                     </a>
                   </li>
@@ -460,33 +460,33 @@ export default function ContactSection() {
 
             {/* Column 4: Contact Info */}
             <div>
-              <h4 className="text-white font-bold mb-5 tracking-wide uppercase text-xs">Connect With Us</h4>
-              <ul className="space-y-4 text-sm text-slate-400">
-                <li className="flex items-start gap-3">
-                  <HiLocationMarker size={18} className="text-red shrink-0 mt-0.5" />
+              <h4 className="contact-footer__col-title">Connect With Us</h4>
+              <ul className="contact-footer__contact-list">
+                <li className="contact-footer__contact-item">
+                  <HiLocationMarker size={18} className="contact-footer__contact-icon-top" />
                   <span className="leading-relaxed">{COMPANY.corporate}</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <HiPhone size={18} className="text-red shrink-0" />
-                  <a href={`tel:${COMPANY.phone}`} className="hover:text-white transition-colors">{COMPANY.phone}</a>
+                <li className="contact-footer__contact-item-center">
+                  <HiPhone size={18} className="contact-footer__contact-icon" />
+                  <a href={`tel:${COMPANY.phone}`} className="contact-footer__contact-link">{COMPANY.phone}</a>
                 </li>
-                <li className="flex items-center gap-3">
-                  <HiMail size={18} className="text-red shrink-0" />
-                  <a href={`mailto:${COMPANY.email}`} className="hover:text-white transition-colors">{COMPANY.email}</a>
+                <li className="contact-footer__contact-item-center">
+                  <HiMail size={18} className="contact-footer__contact-icon" />
+                  <a href={`mailto:${COMPANY.email}`} className="contact-footer__contact-link">{COMPANY.email}</a>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <p className="text-slate-400 text-sm">
-              © {new Date().getFullYear()} {COMPANY.fullName}. All rights reserved.
+          <div className="contact-footer__bottom-bar">
+            <p className="contact-footer__copyright">
+              © {new Date().getFullYear()} {COMPANY.fullName}. All Rights Reserved. <br className="md:hidden" /> Designed & Developed by <span className="text-white font-medium">Velmani M</span>
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <a href="#" className="text-xs text-slate-500 hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="text-xs text-slate-500 hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="text-xs text-slate-500 hover:text-white transition-colors">Sitemap</a>
+            <div className="contact-footer__legal-links">
+              <a href="#" className="contact-footer__legal-link">Privacy Policy</a>
+              <a href="#" className="contact-footer__legal-link">Terms of Service</a>
+              <a href="https://maps.google.com/?q=9.872736,78.346081" target="_blank" rel="noopener noreferrer" className="contact-footer__legal-link">Sitemap</a>
             </div>
           </div>
         </div>

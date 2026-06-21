@@ -1,1 +1,59 @@
-/* Navbar component styles */
+.navbar {
+  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-500;
+}
+
+.navbar--scrolled {
+  @apply bg-white/95 dark:bg-black/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.05)] border-b border-white/20 py-3;
+}
+
+.navbar--transparent {
+  @apply bg-white/90 dark:bg-black/90 backdrop-blur-sm py-4;
+}
+
+.navbar__container {
+  @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-12 flex items-center justify-between;
+}
+
+.navbar__brand {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.navbar__menu {
+  @apply hidden lg:flex items-center gap-8;
+}
+
+.navbar__link {
+  @apply relative text-sm font-bold text-current hover:text-red transition-colors duration-300 py-1 tracking-wide;
+}
+
+.navbar__link-underline {
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-red transition-all duration-300 group-hover:w-full rounded-full opacity-0 group-hover:opacity-100;
+}
+
+.navbar__cta {
+  @apply hidden lg:inline-flex items-center justify-center px-6 py-2.5 rounded-md bg-red text-white font-semibold text-sm tracking-wide transition-colors duration-200 hover:bg-red-hover;
+}
+
+.navbar__mobile-toggle {
+  @apply lg:hidden text-navy dark:text-white p-2;
+}
+
+.navbar__mobile-menu {
+  @apply lg:hidden bg-white dark:bg-black border-t border-border shadow-lg;
+}
+
+.navbar__mobile-list {
+  @apply py-4 px-6;
+}
+
+.navbar__mobile-link {
+  @apply block py-3 text-navy dark:text-white font-medium border-b border-border last:border-0;
+}
+
+.navbar__mobile-cta-wrapper {
+  @apply pt-4;
+}
+
+.navbar__mobile-cta {
+  @apply inline-flex items-center justify-center px-7 py-3.5 rounded-md bg-red text-white font-semibold text-sm tracking-wide transition-colors duration-200 hover:bg-red-hover w-full text-center;
+}

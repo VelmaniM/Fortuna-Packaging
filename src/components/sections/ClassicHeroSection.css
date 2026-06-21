@@ -33,13 +33,108 @@
 .classic-hero-grid-overlay {
   background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
   background-size: 32px 32px;
+  @apply absolute inset-0 opacity-15;
 }
 
 /* Pulsing Orb Animations */
 .classic-hero-pulse-red {
   animation-duration: 8s;
+  @apply absolute top-20 right-10 w-[35rem] h-[35rem] bg-red/10 rounded-full filter blur-[130px] select-none pointer-events-none z-0 animate-pulse;
 }
 
 .classic-hero-pulse-green {
   animation-duration: 10s;
+  @apply absolute -bottom-20 left-10 w-[30rem] h-[30rem] bg-emerald-500/5 rounded-full filter blur-[150px] select-none pointer-events-none z-0 animate-pulse;
+}
+
+.classic-hero__section {
+  @apply relative min-h-[90vh] md:min-h-screen flex items-center bg-white dark:bg-navy-dark overflow-hidden;
+}
+
+.classic-hero__bg-container {
+  @apply absolute inset-0 z-0 select-none pointer-events-none;
+}
+
+.classic-hero__bg-image {
+  @apply w-full h-full object-cover opacity-50 dark:opacity-60 scale-105 filter brightness-[0.9] dark:brightness-[0.65] contrast-[1.05];
+}
+
+.classic-hero__gradient-r {
+  @apply absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent dark:from-navy-dark/95 dark:via-navy-dark/80 dark:to-transparent;
+}
+
+.classic-hero__gradient-t {
+  @apply absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 dark:from-navy-dark dark:via-transparent dark:to-navy-dark/45;
+}
+
+.classic-hero__content-area {
+  @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-12 relative z-10 w-full pt-32 pb-24 md:py-40 flex flex-col items-center text-center;
+}
+
+.classic-hero__content-wrapper {
+  @apply max-w-4xl mx-auto flex flex-col items-center;
+}
+
+.classic-hero__text-container {
+  @apply flex flex-col items-center;
+}
+
+.classic-hero__tag {
+  @apply inline-flex items-center gap-1.5 bg-red/10 border border-red/25 rounded-full px-4 py-1.5 mb-6 backdrop-blur-md shadow-lg shadow-red/5;
+}
+
+.classic-hero__tag-icon {
+  @apply text-red animate-pulse;
+}
+
+.classic-hero__tag-text {
+  @apply text-[10px] font-extrabold text-red uppercase tracking-widest leading-none;
+}
+
+.classic-hero__tagline {
+  @apply text-slate-600 dark:text-slate-300 font-bold text-sm md:text-base uppercase tracking-widest mb-3 drop-shadow-sm;
+}
+
+.classic-hero__title {
+  @apply text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy-dark dark:text-white leading-tight font-display mb-6 tracking-tight drop-shadow-md;
+}
+
+.classic-hero__title-highlight {
+  @apply bg-gradient-to-r from-red to-red-hover bg-clip-text text-transparent block md:inline drop-shadow-none;
+}
+
+.classic-hero__description {
+  @apply text-slate-600 dark:text-slate-200 text-base md:text-lg lg:text-xl leading-relaxed mb-10 max-w-xl font-light;
+}
+
+.classic-hero__actions {
+  @apply flex flex-wrap justify-center gap-4 items-center;
+}
+
+.classic-hero__button-primary {
+  @apply px-8 py-4 rounded-lg bg-gradient-to-r from-red to-red-hover text-white font-semibold text-sm tracking-wide shadow-lg shadow-red/25 hover:shadow-[0_0_35px_rgba(211,47,47,0.45)] transform hover:-translate-y-0.5 transition-all duration-200 cursor-pointer;
+}
+
+.classic-hero__button-secondary {
+  @apply px-8 py-4 rounded-lg border-2 border-navy-dark/80 dark:border-white/80 text-navy-dark dark:text-white font-semibold text-sm tracking-wide hover:bg-navy-dark hover:text-white dark:hover:bg-white dark:hover:text-navy dark:hover:border-white transform hover:-translate-y-0.5 transition-all duration-200 cursor-pointer;
+}
+
+.classic-hero__badge {
+  @apply flex items-center gap-3 bg-white/50 dark:bg-black/30 backdrop-blur-md rounded-xl border border-navy-dark/10 dark:border-white/15 px-5 py-3 shadow-lg ml-0 md:ml-4;
+}
+
+.classic-hero__badge-number {
+  @apply text-3xl font-extrabold text-red drop-shadow-md;
+}
+
+.classic-hero__badge-text-container {
+  @apply flex flex-col text-left;
+}
+
+.classic-hero__badge-text-top {
+  @apply text-[10px] text-slate-500 dark:text-slate-300 uppercase tracking-widest font-semibold leading-none;
+}
+
+.classic-hero__badge-text-bottom {
+  @apply text-xs text-navy-dark dark:text-white font-bold tracking-wide uppercase leading-tight;
 }

@@ -1,1 +1,49 @@
 /* Quality Section component styles */
+
+.quality-section {
+  @apply py-16 md:py-24 bg-white dark:bg-black;
+}
+
+.quality-section__layout {
+  @apply grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center;
+}
+
+.quality-section__subtitle {
+  @apply text-red font-semibold text-sm uppercase tracking-widest;
+}
+
+.quality-section__title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy dark:text-white leading-tight mt-3 mb-6;
+}
+
+.quality-section__title-highlight {
+  @apply text-red;
+}
+
+.quality-section__description {
+  @apply text-silver dark:text-gray-300 leading-relaxed mb-8;
+}
+
+.quality-section__list {
+  @apply space-y-4;
+}
+
+.quality-section__list-item {
+  @apply flex items-center gap-3;
+}
+
+.quality-section__list-icon {
+  @apply text-red flex-shrink-0;
+}
+
+.quality-section__list-text {
+  @apply font-medium text-navy dark:text-white;
+}
+
+.quality-section__image-container {
+  @apply rounded-2xl overflow-hidden shadow-card aspect-[16/10] max-w-lg mx-auto lg:ml-auto border border-slate-200/50;
+}
+
+.quality-section__image {
+  @apply w-full h-full object-cover transform hover:scale-[1.02] transition-transform duration-300;
+}

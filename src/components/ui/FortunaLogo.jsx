@@ -26,18 +26,18 @@ export default function FortunaLogo({ size = 'md', showTagline = true, light = f
   const wordmarkSrc = `/Fortuna-Packaging/images/fortuna-wordmark-transparent.png${timestamp ? `?t=${timestamp}` : ''}`;
 
   return (
-    <a href="#hero" className="flex items-center gap-0.5 group" onClick={goHome} aria-label="Fortuna home">
+    <a href="#hero" className="fortuna-logo group" onClick={goHome} aria-label="Fortuna home">
       <img
         src={fingerprintSrc}
         alt=""
         aria-hidden="true"
-        className={`${s.icon} shrink-0 object-contain drop-shadow-[0_0_14px_rgba(6,173,98,0.45)] transition-[filter,transform] duration-200 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(211,47,47,0.35)]`}
+        className={`${s.icon} fortuna-logo__icon`}
       />
       {showTagline && (
         <img
           src={wordmarkSrc}
           alt="Fortuna - Impress With Impressions"
-          className={`${s.wordmark} object-contain object-left ${wordmarkOpacity}`}
+          className={`${s.wordmark} fortuna-logo__wordmark ${wordmarkOpacity}`}
         />
       )}
     </a>

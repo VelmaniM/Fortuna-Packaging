@@ -1,17 +1,40 @@
 /* Loader */
-@keyframes loader-rise {
+@-webkit-keyframes loader-rise {
   from {
     opacity: 0;
+    -webkit-transform: translate3d(0, 18px, 0) scale(0.98);
     transform: translate3d(0, 18px, 0) scale(0.98);
   }
   to {
     opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes loader-rise {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 18px, 0) scale(0.98);
+    transform: translate3d(0, 18px, 0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
     transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 .loader-content {
+  -webkit-animation: loader-rise 0.45s ease-out both;
   animation: loader-rise 0.45s ease-out both;
+}
+
+@-webkit-keyframes loader-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @keyframes loader-exit {
@@ -22,12 +45,34 @@
 }
 
 .loader-exit {
+  -webkit-animation: loader-exit 0.3s ease forwards;
   animation: loader-exit 0.3s ease forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .loader-content,
   .loader-exit {
+    -webkit-animation: none;
     animation: none;
   }
+}
+
+.loading-screen {
+  @apply fixed inset-0 z-[10000] grid place-items-center overflow-hidden bg-white dark:bg-black px-6;
+}
+
+.loading-screen__content {
+  @apply flex w-full max-w-[31rem] flex-col items-center justify-center text-center;
+}
+
+.loading-screen__video-wrapper {
+  @apply mb-5 grid h-[18rem] w-[18rem] place-items-center sm:h-[21rem] sm:w-[21rem] md:h-[23rem] md:w-[23rem];
+}
+
+.loading-screen__video {
+  @apply h-full w-full object-contain;
+}
+
+.loading-screen__wordmark {
+  @apply w-full max-w-[20rem] object-contain drop-shadow-[0_12px_24px_rgba(0,31,63,0.07)] sm:max-w-[24rem] md:max-w-[27rem];
 }

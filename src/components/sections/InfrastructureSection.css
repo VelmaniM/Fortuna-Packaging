@@ -1,1 +1,99 @@
-/* Infrastructure Section component styles */
+.infrastructure-section {
+  @apply py-16 md:py-24 bg-white dark:bg-navy overflow-hidden;
+}
+
+.infrastructure-header {
+  @apply text-center max-w-3xl mx-auto mb-12;
+}
+
+.infrastructure-header__label {
+  @apply text-red font-semibold text-sm uppercase tracking-widest;
+}
+
+.infrastructure-header__title {
+  @apply text-3xl md:text-4xl font-bold text-navy dark:text-white mt-3 mb-4;
+}
+
+.infrastructure-header__title-highlight {
+  @apply text-red;
+}
+
+.infrastructure-header__description {
+  @apply text-slate-600 dark:text-slate-300 leading-relaxed;
+}
+
+.infrastructure-content {
+  @apply grid lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-8 items-stretch;
+}
+
+.campus-card {
+  @apply bg-white dark:bg-black rounded-xl shadow-card overflow-hidden;
+}
+
+.campus-card__layout {
+  @apply grid md:grid-cols-[0.95fr_1.05fr] h-full;
+}
+
+.campus-card__image-container {
+  @apply min-h-72 bg-slate-50 flex items-center justify-center p-8;
+}
+
+.campus-card__image {
+  @apply h-full w-full object-cover;
+}
+
+.campus-card__content {
+  @apply p-7 md:p-9 flex flex-col justify-center;
+}
+
+.campus-card__label {
+  @apply text-red font-semibold text-xs uppercase tracking-widest mb-3;
+}
+
+.campus-card__title {
+  @apply text-2xl md:text-3xl font-bold text-navy dark:text-white mb-4;
+}
+
+.campus-card__description {
+  @apply text-silver dark:text-gray-300 leading-relaxed mb-6;
+}
+
+.campus-card__stats-grid {
+  @apply grid grid-cols-3 gap-3;
+}
+
+.campus-card__stat-item {
+  @apply rounded-lg border border-border bg-soft dark:bg-black p-3;
+}
+
+.campus-card__stat-label {
+  @apply text-[9px] font-semibold uppercase tracking-wider text-silver dark:text-gray-300 mb-1;
+}
+
+.campus-card__stat-value {
+  @apply text-[14px] font-bold text-navy dark:text-white;
+}
+
+.strength-card {
+  @apply bg-white dark:bg-black/[0.08] border border-border dark:border-white/10 shadow-card dark:shadow-none rounded-xl p-6 md:p-7 flex flex-col justify-center;
+}
+
+.strength-card__label {
+  @apply text-red font-semibold text-xs uppercase tracking-widest mb-3;
+}
+
+.strength-card__title {
+  @apply text-2xl font-bold text-navy dark:text-white mb-4;
+}
+
+.strength-card__description {
+  @apply text-slate-600 dark:text-slate-300 leading-relaxed mb-6;
+}
+
+.strength-card__footer {
+  @apply border-t border-border dark:border-white/10 pt-6;
+}
+
+.strength-card__footer-text {
+  @apply text-sm text-slate-500 dark:text-slate-400;
+}

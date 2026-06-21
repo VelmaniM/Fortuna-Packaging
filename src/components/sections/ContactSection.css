@@ -20,3 +20,297 @@
   animation-duration: 12s;
 }
 
+.contact-section {
+  @apply relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-black dark:via-gray-950 dark:to-black text-slate-700 dark:text-white;
+}
+
+.contact-section__bg-layer {
+  @apply absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.14] scale-[1.02] select-none pointer-events-none;
+}
+
+.contact-section__glass-overlay {
+  @apply absolute inset-0 z-0 bg-gradient-to-b from-slate-50/90 via-white/80 to-slate-50/95 dark:from-black/90 dark:via-gray-950/80 dark:to-black/95 backdrop-blur-[5px] pointer-events-none;
+}
+
+.contact-section__grid-overlay {
+  @apply absolute inset-0 select-none pointer-events-none opacity-40 z-0;
+}
+
+.contact-section__orb-sky {
+  @apply hidden dark:block absolute -top-40 -left-40 w-[35rem] h-[35rem] bg-sky-400/5 rounded-full filter blur-[120px] select-none pointer-events-none z-0 animate-pulse;
+}
+
+.contact-section__orb-navy {
+  @apply hidden dark:block absolute top-1/2 left-1/3 w-[30rem] h-[30rem] bg-navy dark:bg-black/5 rounded-full filter blur-[150px] select-none pointer-events-none z-0;
+}
+
+.contact-section__orb-red {
+  @apply hidden dark:block absolute -bottom-20 -right-20 w-[40rem] h-[40rem] bg-red/5 rounded-full filter blur-[160px] select-none pointer-events-none z-0 animate-pulse;
+}
+
+.contact-section__content {
+  @apply py-12 md:py-16 relative z-10 border-t border-slate-200/50;
+}
+
+.contact-section__header {
+  @apply text-center lg:text-left mb-10;
+}
+
+.contact-section__tag {
+  @apply inline-flex items-center gap-2 bg-red/10 border border-red/20 text-red font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-sm;
+}
+
+.contact-section__tag-icon {
+  @apply w-1.5 h-1.5 rounded-full bg-red animate-pulse;
+}
+
+.contact-section__title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold font-display text-navy dark:text-white mt-4 tracking-tight leading-tight;
+}
+
+.contact-section__title-highlight {
+  @apply bg-gradient-to-r from-red to-red-hover bg-clip-text text-transparent;
+}
+
+.contact-section__description {
+  @apply text-slate-500 text-sm md:text-base mt-2 max-w-xl font-medium;
+}
+
+.contact-section__grid {
+  @apply grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-stretch;
+}
+
+.contact-card {
+  @apply bg-white dark:bg-black/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,31,63,0.03)] border border-slate-200/60 p-8 hover:border-slate-200/80 transition-all duration-300 flex flex-col justify-start gap-6;
+}
+
+.contact-card__title {
+  @apply text-xl font-bold text-navy dark:text-white mb-5 tracking-tight;
+}
+
+.contact-card__group {
+  @apply space-y-4 pb-5 border-b border-slate-200/50;
+}
+
+.contact-card__row {
+  @apply flex items-center gap-3;
+}
+
+.contact-card__row-icon {
+  @apply w-10 h-10 rounded-xl bg-gradient-to-br from-red to-red-hover text-white flex items-center justify-center shrink-0 shadow-md shadow-red/10 transition-transform duration-300 group-hover:scale-105;
+}
+
+.contact-card__row-label {
+  @apply text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5;
+}
+
+.contact-card__row-value {
+  @apply text-sm font-semibold text-navy dark:text-white;
+}
+
+.contact-card__row-value--hover {
+  @apply text-sm font-semibold text-navy dark:text-white hover:text-red transition-colors;
+}
+
+.contact-card__location-row {
+  @apply flex items-start gap-4;
+}
+
+.contact-card__location-icon {
+  @apply w-10 h-10 rounded-xl bg-gradient-to-br from-red to-red-hover text-white flex items-center justify-center shrink-0 mt-0.5 shadow-md shadow-red/10 transition-transform duration-300 group-hover:scale-105;
+}
+
+.contact-card__location-label {
+  @apply text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5;
+}
+
+.contact-card__location-value {
+  @apply text-slate-700 dark:text-white text-sm leading-relaxed font-semibold;
+}
+
+.contact-card__hours-row {
+  @apply flex items-center gap-4;
+}
+
+.contact-card__hours-icon {
+  @apply w-10 h-10 rounded-xl bg-slate-100 dark:bg-gray-800 text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105;
+}
+
+.contact-card__hours-label {
+  @apply text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5;
+}
+.contact-form__card {
+  @apply bg-white dark:bg-black/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,31,63,0.05)] border border-slate-200/60 p-8 md:p-10 hover:border-slate-200/80 transition-all duration-300 relative overflow-hidden flex flex-col justify-between;
+}
+
+.contact-form__glow {
+  @apply absolute -top-12 -right-12 w-32 h-32 bg-red/5 rounded-full blur-[40px] pointer-events-none;
+}
+
+.contact-form__success-container {
+  @apply h-full flex flex-col items-center justify-center text-center py-10 px-4 select-none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contact-form__success-icon-wrapper {
+  @apply w-16 h-16 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/10 animate-bounce;
+}
+
+.contact-form__success-title {
+  @apply text-2xl font-bold text-navy dark:text-white mb-3 tracking-tight;
+}
+
+.contact-form__success-text {
+  @apply text-slate-500 text-sm md:text-base leading-relaxed max-w-sm font-semibold;
+}
+
+.contact-form__success-button {
+  @apply mt-8 px-6 py-2.5 rounded-xl border border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800 text-slate-700 dark:text-white font-bold hover:bg-slate-100 dark:hover:bg-gray-700 transition-all duration-200 text-xs uppercase tracking-wider shadow-sm cursor-pointer;
+}
+
+.contact-form__form {
+  @apply h-full flex flex-col justify-between;
+}
+
+.contact-form__title {
+  @apply text-xl md:text-2xl font-bold text-navy dark:text-white mb-6 tracking-tight flex items-center gap-2;
+}
+
+.contact-form__fields {
+  @apply space-y-4;
+}
+
+.contact-form__field-group {
+  @apply space-y-1.5;
+}
+
+.contact-form__label {
+  @apply block text-xs font-bold text-slate-400 uppercase tracking-widest;
+}
+
+.contact-form__input-wrapper {
+  @apply relative;
+}
+
+.contact-form__input-icon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 transition-colors duration-300;
+}
+
+.contact-form__input-icon--textarea {
+  @apply absolute left-4 top-[14px] transition-colors duration-300;
+}
+
+.contact-form__input {
+  @apply w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 dark:border-gray-700 bg-slate-50/50 dark:bg-gray-900/50 text-navy dark:text-white outline-none focus:bg-white dark:focus:bg-black focus:ring-4 transition-all duration-300 font-semibold text-sm;
+}
+
+.contact-form__textarea {
+  @apply w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 dark:border-gray-700 bg-slate-50/50 dark:bg-gray-900/50 text-navy dark:text-white outline-none focus:bg-white dark:focus:bg-black focus:ring-4 transition-all duration-300 resize-none font-semibold text-sm min-h-[90px];
+}
+
+.contact-form__error-text {
+  @apply text-[11px] text-red font-semibold mt-1 flex items-center gap-1 select-none;
+}
+
+.contact-form__api-error {
+  @apply mt-4 p-3 rounded-lg bg-red/10 border border-red/20 text-red text-sm font-semibold flex items-center justify-center;
+}
+
+.contact-form__submit-button {
+  @apply w-full py-3.5 rounded-xl bg-gradient-to-r from-red to-red-hover text-white font-bold tracking-wider hover:shadow-[0_0_30px_rgba(211,47,47,0.35)] hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden mt-5;
+}
+
+.contact-form__submit-gradient {
+  @apply absolute inset-0 bg-gradient-to-r from-rose-500 via-red to-red-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.contact-form__submit-content {
+  @apply relative z-10 flex items-center justify-center gap-2 text-sm uppercase tracking-wider;
+}
+
+.contact-footer {
+  @apply bg-white dark:bg-navy pt-16 pb-8 relative z-10 border-t border-slate-200 dark:border-slate-200/10;
+}
+
+.contact-footer__grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12;
+}
+
+.contact-footer__brand-col {
+  @apply space-y-4;
+}
+
+.contact-footer__brand-desc {
+  @apply text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-4 pr-4;
+}
+
+.contact-footer__socials {
+  @apply flex items-center gap-3 mt-6;
+}
+
+.contact-footer__social-link {
+  @apply w-9 h-9 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 transition-all duration-300 shadow-sm dark:shadow-md;
+}
+
+.contact-footer__col-title {
+  @apply text-navy dark:text-white font-bold mb-5 tracking-wide uppercase text-xs;
+}
+
+.contact-footer__link-list {
+  @apply space-y-3;
+}
+
+.contact-footer__link {
+  @apply text-sm text-slate-600 dark:text-slate-400 hover:text-navy dark:hover:text-white transition-colors duration-200 flex items-center gap-2;
+}
+
+.contact-footer__link-icon {
+  @apply text-red opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all;
+}
+
+.contact-footer__contact-list {
+  @apply space-y-4 text-sm text-slate-600 dark:text-slate-400;
+}
+
+.contact-footer__contact-item {
+  @apply flex items-start gap-3;
+}
+
+.contact-footer__contact-item-center {
+  @apply flex items-center gap-3;
+}
+
+.contact-footer__contact-icon {
+  @apply text-red shrink-0;
+}
+
+.contact-footer__contact-icon-top {
+  @apply text-red shrink-0 mt-0.5;
+}
+
+.contact-footer__contact-link {
+  @apply hover:text-navy dark:hover:text-white transition-colors;
+}
+
+.contact-footer__bottom-bar {
+  @apply border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left;
+}
+
+.contact-footer__copyright {
+  @apply text-slate-600 dark:text-slate-400 text-sm;
+}
+
+.contact-footer__legal-links {
+  @apply flex flex-wrap justify-center gap-6;
+}
+
+.contact-footer__legal-link {
+  @apply text-xs text-slate-600 dark:text-slate-500 hover:text-navy dark:hover:text-white transition-colors;
+}
+.contact-card__hours-value {
+  @apply text-slate-700 dark:text-white text-xs leading-normal font-semibold;
+}

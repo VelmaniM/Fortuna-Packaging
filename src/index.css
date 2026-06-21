@@ -15,6 +15,8 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #001f3f #f1f5f9;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -25,8 +27,7 @@ html {
 
 body {
   font-family: 'Poppins', system-ui, sans-serif;
-  background: #ffffff;
-  color: #334155;
+  @apply bg-white dark:bg-black text-slate-700 dark:text-gray-200 transition-colors duration-300;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -396,7 +397,7 @@ body {
 
 
   .heading-xl {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy dark:text-white leading-tight;
   }
 
   .text-red-accent {

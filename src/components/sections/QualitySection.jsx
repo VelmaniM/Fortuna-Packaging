@@ -4,33 +4,33 @@ import './QualitySection.css';
 
 export default function QualitySection() {
   return (
-    <section id="quality" className="section-padding bg-white">
+    <section id="quality" className="quality-section">
       <div className="section-container">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+        <div className="quality-section__layout">
           <div className="reveal">
-            <span className="text-red font-semibold text-sm uppercase tracking-widest">Quality</span>
-            <h2 className="heading-xl mt-3 mb-6">
+            <span className="quality-section__subtitle">Quality</span>
+            <h2 className="quality-section__title">
               Ensuring Quality at{' '}
-              <span className="text-red-accent">Every Step</span>
+              <span className="quality-section__title-highlight">Every Step</span>
             </h2>
-            <p className="text-silver leading-relaxed mb-8">
+            <p className="quality-section__description">
               Our in-house laboratory runs comprehensive tests on every batch — guaranteeing strength, consistency, and compliance before products leave our facility.
             </p>
-            <ul className="space-y-4">
+            <ul className="quality-section__list">
               {QUALITY_CHECKS.map((check) => (
-                <li key={check.id} className="flex items-center gap-3">
-                  <HiCheckCircle className="text-red flex-shrink-0" size={22} />
-                  <span className="font-medium text-navy">{check.name}</span>
+                <li key={check.id} className="quality-section__list-item">
+                  <HiCheckCircle className="quality-section__list-icon" size={22} />
+                  <span className="quality-section__list-text">{check.name}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="reveal relative rounded-2xl overflow-hidden shadow-card aspect-[16/10] max-w-lg mx-auto lg:ml-auto border border-slate-200/50">
+          <div className="reveal relative quality-section__image-container">
             <img
               src="/Fortuna-Packaging/images/quality-lab.jpg"
               alt="Fortuna Packaging quality control laboratory"
-              className="w-full h-full object-cover transform hover:scale-[1.02] transition-transform duration-300"
+              className="quality-section__image"
               width={600}
               height={375}
               loading="lazy"

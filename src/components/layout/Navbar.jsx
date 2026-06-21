@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiMoon, HiSun } from 'react-icons/hi';
 import FortunaLogo from '../ui/FortunaLogo';
 import { NAV_LINKS } from '../../utils/constants';
 import { scrollToSection } from '../../utils/scrollTo';
@@ -9,9 +9,26 @@ import './Navbar.css';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
   const ticking = useRef(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -52,69 +69,79 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`navbar text-slate-700 dark:text-white ${
         scrolled 
-          ? 'bg-white/85 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.05)] border-b border-white/20 py-3' 
-          : 'bg-white py-4'
+          ? 'navbar--scrolled dark:border-b dark:border-gray-800' 
+          : 'navbar--transparent'
       }`}
     >
-      <nav className="section-container flex items-center justify-between">
-        <div className="group transition-transform duration-300 hover:scale-105">
+      <nav className="navbar__container">
+        <div className="navbar__brand group">
           <FortunaLogo size="md" />
         </div>
 
-        <ul className="hidden lg:flex items-center gap-8">
+        <ul className="navbar__menu">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="relative text-sm font-bold text-slate-600 hover:text-red transition-colors duration-300 group py-1 tracking-wide"
+                className="navbar__link group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red transition-all duration-300 group-hover:w-full rounded-full opacity-0 group-hover:opacity-100"></span>
+                <span className="navbar__link-underline"></span>
               </a>
             </li>
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          onClick={(e) => handleNavClick(e, '#contact')}
-          className="hidden lg:inline-flex btn-primary text-sm py-2.5 px-6"
-        >
-          Get in Touch
-        </a>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="p-2 rounded-full text-current hover:bg-gray-100/20 transition-colors"
+            aria-label="Toggle Dark Mode"
+          >
+            {isDarkMode ? <HiSun size={22} /> : <HiMoon size={22} />}
+          </button>
 
-        <button
-          type="button"
-          className="lg:hidden text-navy p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-        >
-          {mobileOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
-        </button>
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
+            className="navbar__cta hidden md:inline-flex"
+          >
+            Get in Touch
+          </a>
+
+          <button
+            type="button"
+            className="navbar__mobile-toggle md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          >
+            {mobileOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
+          </button>
+        </div>
       </nav>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-border shadow-lg">
-          <ul className="py-4 px-6">
+        <div className="navbar__mobile-menu">
+          <ul className="navbar__mobile-list">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="block py-3 text-navy font-medium border-b border-border last:border-0"
+                  className="navbar__mobile-link"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
-            <li className="pt-4">
+            <li className="navbar__mobile-cta-wrapper">
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="btn-primary w-full text-center"
+                className="navbar__mobile-cta"
               >
                 Get in Touch
               </a>

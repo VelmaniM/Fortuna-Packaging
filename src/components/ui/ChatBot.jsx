@@ -104,9 +104,9 @@ export default function ChatBot() {
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 ${
-          isOpen ? 'opacity-0 pointer-events-none scale-75' : 'opacity-100 scale-100'
-        } bg-gradient-to-r from-red to-red-hover text-white`}
+        className={`chatbot__fab ${
+          isOpen ? 'chatbot__fab--open' : 'chatbot__fab--closed'
+        }`}
         aria-label="Open Chat"
       >
         <HiChatAlt2 size={28} />
@@ -114,27 +114,27 @@ export default function ChatBot() {
 
       {/* Chat Window Container (WhatsApp-like layout, Fortuna Theme) */}
       <div
-        className={`fixed bottom-6 right-6 z-50 w-[85vw] max-w-[300px] h-[380px] max-h-[80vh] bg-white rounded-2xl shadow-[0_5px_40px_rgba(0,0,0,0.15)] border border-slate-200 flex flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right ${
-          isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-50 opacity-0 translate-y-10 pointer-events-none'
+        className={`chatbot__window ${
+          isOpen ? 'chatbot__window--open' : 'chatbot__window--closed'
         }`}
       >
         {/* Chat Header */}
-        <div className="flex items-center justify-between px-3 py-2.5 bg-white border-b border-slate-100 shadow-sm z-10 shrink-0">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0">
+        <div className="chatbot__header">
+          <div className="chatbot__header-brand">
+            <div className="chatbot__header-logo">
               <FortunaLogo size="sm" showTagline={false} />
             </div>
-            <div className="flex flex-col">
-              <h3 className="text-slate-900 font-bold text-[14px] leading-tight tracking-wide">Fortuna Assistant</h3>
-              <div className="flex items-center gap-1 mt-0.5">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_5px_rgba(34,197,94,0.6)]"></div>
-                <span className="text-slate-500 text-[10px] uppercase tracking-wider font-semibold leading-none">Online</span>
+            <div className="chatbot__header-info">
+              <h3 className="chatbot__header-title">Fortuna Assistant</h3>
+              <div className="chatbot__status">
+                <div className="chatbot__status-indicator"></div>
+                <span className="chatbot__status-text">Online</span>
               </div>
             </div>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-slate-400 hover:text-slate-700 transition-colors p-1 shrink-0 hover:bg-slate-100 rounded-full"
+            className="chatbot__close-button"
             aria-label="Close Chat"
           >
             <HiX size={18} />
@@ -142,34 +142,34 @@ export default function ChatBot() {
         </div>
 
         {/* Chat Messages Area Wrapper */}
-        <div className="flex-1 relative bg-white overflow-hidden">
+        <div className="chatbot__body">
           {/* Full Background Image (User Uploaded Logo) */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="chatbot__bg-wrapper">
             <img 
               src="/Fortuna-Packaging/images/fortuna-colored-logo.jpg" 
               alt="Chat Background" 
-              className="w-full h-full object-cover opacity-100" 
+              className="chatbot__bg-image" 
             />
           </div>
 
           {/* Scrolling Messages */}
-          <div className="absolute inset-0 z-10 p-2.5 overflow-y-auto flex flex-col gap-1.5 scrollbar-hide overscroll-contain">
+          <div className="chatbot__messages">
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex w-full ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`chatbot__message-wrapper ${msg.sender === 'user' ? 'chatbot__message-wrapper--user' : 'chatbot__message-wrapper--bot'}`}
               >
                 <div
-                  className={`relative max-w-[85%] px-2 py-1 text-[12px] leading-tight shadow-sm ${
+                  className={`chatbot__message-bubble ${
                     msg.sender === 'user'
-                      ? 'bg-gradient-to-br from-red to-red-hover text-white rounded-l-lg rounded-br-lg rounded-tr-sm'
-                      : 'bg-white border border-slate-100 text-slate-800 rounded-r-lg rounded-bl-lg rounded-tl-sm'
+                      ? 'chatbot__message-bubble--user'
+                      : 'chatbot__message-bubble--bot'
                   }`}
                 >
                   {msg.text}
                   {/* Timestamp */}
-                  <div className="flex justify-end items-center gap-1 mt-0.5 -mb-0.5">
-                    <span className={`text-[8.5px] leading-none ${msg.sender === 'user' ? 'text-white/90' : 'text-slate-400'}`}>
+                  <div className="chatbot__message-footer">
+                    <span className={`chatbot__message-time ${msg.sender === 'user' ? 'chatbot__message-time--user' : 'chatbot__message-time--bot'}`}>
                       {msg.timestamp}
                     </span>
                   </div>
@@ -181,20 +181,20 @@ export default function ChatBot() {
         </div>
 
         {/* Chat Input Area */}
-        <form onSubmit={handleSendMessage} className="px-2.5 py-2 bg-white border-t border-slate-100 flex gap-2 items-center">
+        <form onSubmit={handleSendMessage} className="chatbot__form">
           <input
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Type your message..."
-            className="flex-1 bg-slate-50 border border-slate-200 rounded-full px-3.5 py-1.5 text-[12.5px] text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red/50 focus:bg-white transition-colors"
+            className="chatbot__input"
           />
           <button
             type="submit"
             disabled={!inputValue.trim()}
-            className="w-8 h-8 rounded-full bg-gradient-to-r from-red to-red-hover text-white flex items-center justify-center hover:shadow-[0_2px_8px_rgba(211,47,47,0.4)] disabled:opacity-50 disabled:cursor-not-allowed transition-all shrink-0"
+            className="chatbot__submit"
           >
-            <HiPaperAirplane className="transform rotate-90 relative -left-0.5" size={14} />
+            <HiPaperAirplane className="chatbot__submit-icon" size={14} />
           </button>
         </form>
       </div>

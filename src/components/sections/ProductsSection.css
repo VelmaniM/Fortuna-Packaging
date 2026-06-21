@@ -1,3 +1,122 @@
+.products-section {
+  @apply py-16 md:py-24 bg-soft dark:bg-black dark:bg-gray-800;
+}
+
+.products-header {
+  @apply text-center max-w-3xl mx-auto mb-14;
+}
+
+.products-header__label {
+  @apply text-red font-semibold text-sm uppercase tracking-widest;
+}
+
+.products-header__title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy dark:text-white leading-tight mt-3;
+}
+
+.products-header__title-highlight {
+  @apply text-red;
+}
+
+.products-header__description {
+  @apply text-silver dark:text-gray-300 mt-4 leading-relaxed;
+}
+
+.product-card {
+  @apply relative w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-slate-300/50 text-left transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(211,47,47,0.15)] border border-slate-200 hover:border-red/30 bg-white dark:bg-black;
+}
+
+.product-card--active {
+  @apply ring-2 ring-red shadow-[0_20px_40px_rgba(211,47,47,0.25)] border-transparent;
+}
+
+.product-card__image-container {
+  @apply w-full h-[calc(100%-80px)] flex items-center justify-center p-8 bg-transparent select-none;
+}
+
+.product-card__image {
+  @apply max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105;
+}
+
+.product-card__drawer {
+  @apply absolute bottom-0 left-0 right-0 bg-navy-dark/95 dark:bg-black/95 backdrop-blur-md border-t border-white/10 p-5 md:p-6 z-10 transition-all duration-300 ease-out translate-y-[calc(100%-80px)] group-hover:translate-y-0;
+}
+
+.product-card__drawer-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.product-card__brand-label {
+  @apply text-[10px] text-red font-bold uppercase tracking-widest block mb-1;
+}
+
+.product-card__title {
+  @apply font-bold text-white text-lg md:text-xl tracking-tight;
+}
+
+.product-card__icon-wrapper {
+  @apply w-8 h-8 rounded-full bg-white/10 dark:bg-black/30 flex items-center justify-center text-white group-hover:bg-red transition-all duration-300 flex-shrink-0;
+}
+
+.product-card__icon {
+  @apply transform group-hover:rotate-90 transition-transform duration-300;
+}
+
+.product-card__content {
+  @apply space-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75;
+}
+
+.product-card__description {
+  @apply text-xs md:text-sm text-slate-300 leading-relaxed font-light;
+}
+
+.product-card__tags {
+  @apply flex flex-wrap gap-1.5 pt-1;
+}
+
+.product-card__tag {
+  @apply text-[10px] bg-white/10 dark:bg-black/30 text-slate-200 px-2 py-0.5 rounded font-medium border border-white/5;
+}
+
+.product-card__footer {
+  @apply pt-2 border-t border-white/5;
+}
+
+.product-card__link {
+  @apply inline-flex items-center gap-1.5 text-xs font-bold text-red hover:text-red-hover transition-colors duration-200;
+}
+
+.product-card__link-icon {
+  @apply group-hover:translate-x-1 transition-transform duration-200;
+}
+
+.products-pagination {
+  @apply mt-8 flex items-center justify-center gap-3;
+}
+
+.product-modal__title-wrapper {
+  @apply text-red font-semibold text-xs uppercase tracking-widest;
+}
+
+.product-modal__title {
+  @apply text-3xl font-bold text-navy dark:text-white mt-3 mb-4;
+}
+
+.product-modal__description {
+  @apply text-slate-600 dark:text-gray-300 leading-relaxed mb-6;
+}
+
+.product-modal__grid {
+  @apply grid sm:grid-cols-2 gap-5;
+}
+
+.product-modal__list-title {
+  @apply font-bold text-navy dark:text-white mb-3;
+}
+
+.product-modal__list {
+  @apply space-y-2;
+}
 .product-pages {
   position: relative;
   padding-inline: 3.5rem;
@@ -92,7 +211,7 @@
   grid-template-columns: 0.9fr 1.1fr;
   overflow: auto;
   border-radius: 0.75rem;
-  background: #ffffff;
+  @apply bg-white dark:bg-gray-900;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
   animation: product-panel-in 0.24s ease-out both;
 }
@@ -135,9 +254,8 @@
 
 .product-modal__list-item {
   border-radius: 0.5rem;
-  background: #f8fafc;
+  @apply bg-slate-50 dark:bg-black/50 text-navy dark:text-white;
   padding: 0.75rem 0.9rem;
-  color: #001f3f;
   font-size: 0.9rem;
   font-weight: 600;
 }
