@@ -41,7 +41,7 @@
 }
 
 .chatbot__header-title {
-  @apply text-slate-900 font-bold text-[14px] leading-tight tracking-wide;
+  @apply text-slate-900 dark:text-white font-bold text-[14px] leading-tight tracking-wide;
 }
 
 .chatbot__status {
@@ -126,7 +126,7 @@
 }
 
 .chatbot__input {
-  @apply flex-1 bg-slate-50 border border-slate-200 rounded-full px-3.5 py-1.5 text-[12.5px] text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red/50 focus:bg-white dark:bg-black transition-colors;
+  @apply flex-1 bg-slate-50 border border-slate-200 rounded-full px-3.5 py-1.5 text-[12.5px] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-red/50 focus:bg-white dark:bg-black transition-colors;
 }
 
 .chatbot__submit {
