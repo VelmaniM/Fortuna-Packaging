@@ -21,7 +21,7 @@
 }
 
 .quality-section__description {
-  @apply text-silver dark:text-gray-300 leading-relaxed mb-8;
+  @apply text-slate-600 dark:text-gray-300 leading-relaxed mb-8;
 }
 
 .quality-section__list {

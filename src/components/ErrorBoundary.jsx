@@ -19,7 +19,7 @@ export default class ErrorBoundary extends Component {
       return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black p-8 text-center">
           <h1 className="text-2xl font-bold text-navy dark:text-white mb-4">Something went wrong</h1>
-          <p className="text-silver dark:text-gray-300 mb-6">Please refresh the page to try again.</p>
+          <p className="text-slate-600 dark:text-gray-300 mb-6">Please refresh the page to try again.</p>
           <button
             type="button"
             onClick={() => window.location.reload()}

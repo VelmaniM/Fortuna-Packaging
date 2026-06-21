@@ -101,7 +101,7 @@
 }
 
 .contact-card__row-label {
-  @apply text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5;
+  @apply text-[10px] font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-0.5;
 }
 
 .contact-card__row-value {
@@ -121,7 +121,7 @@
 }
 
 .contact-card__location-label {
-  @apply text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5;
+  @apply text-[10px] font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-0.5;
 }
 
 .contact-card__location-value {
@@ -137,7 +137,7 @@
 }
 
 .contact-card__hours-label {
-  @apply text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-0.5;
+  @apply text-[10px] font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-0.5;
 }
 .contact-form__card {
   @apply bg-white dark:bg-black/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,31,63,0.05)] border border-slate-200/60 p-8 md:p-10 hover:border-slate-200/80 transition-all duration-300 relative overflow-hidden flex flex-col justify-between;
@@ -189,7 +189,7 @@
 }
 
 .contact-form__label {
-  @apply block text-xs font-bold text-slate-400 uppercase tracking-widest;
+  @apply block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest;
 }
 
 .contact-form__input-wrapper {

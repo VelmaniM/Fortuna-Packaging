@@ -55,7 +55,7 @@
 }
 
 .campus-card__description {
-  @apply text-silver dark:text-gray-300 leading-relaxed mb-6;
+  @apply text-slate-600 dark:text-gray-300 leading-relaxed mb-6;
 }
 
 .campus-card__stats-grid {
@@ -67,7 +67,7 @@
 }
 
 .campus-card__stat-label {
-  @apply text-[9px] font-semibold uppercase tracking-wider text-silver dark:text-gray-300 mb-1;
+  @apply text-[9px] font-semibold uppercase tracking-wider text-slate-600 dark:text-gray-300 mb-1;
 }
 
 .campus-card__stat-value {

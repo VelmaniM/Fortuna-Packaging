@@ -21,7 +21,7 @@
 }
 
 .about-section__description {
-  @apply text-silver dark:text-gray-300 leading-relaxed mb-10 text-left;
+  @apply text-slate-600 dark:text-gray-300 leading-relaxed mb-10 text-left;
 }
 
 .about-section__features {
@@ -53,7 +53,7 @@
 }
 
 .about-section__feature-text {
-  @apply text-sm text-silver dark:text-gray-300 leading-relaxed text-left;
+  @apply text-sm text-slate-600 dark:text-gray-300 leading-relaxed text-left;
 }
 
 .about-section__image-container {
