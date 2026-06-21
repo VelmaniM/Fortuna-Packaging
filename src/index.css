@@ -416,14 +416,9 @@ input, textarea {
   }
 }
 
-/* Defer off-screen section paint */
-section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 500px;
-}
+/* Defer off-screen section paint is removed because it breaks anchor smooth scrolling */
 
 img {
-  content-visibility: auto;
   pointer-events: none;
   -webkit-user-drag: none;
 }
