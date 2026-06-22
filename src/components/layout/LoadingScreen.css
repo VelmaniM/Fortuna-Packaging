@@ -71,6 +71,10 @@
 
 .loading-screen__video {
   @apply h-full w-full object-contain;
+  background-color: transparent;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .loading-screen__wordmark {

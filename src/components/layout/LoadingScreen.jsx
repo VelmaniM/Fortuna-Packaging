@@ -64,10 +64,10 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            {/* Safari/iOS native HEVC with alpha */}
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type="video/mp4" />
-            {/* Chrome/Android WebM with alpha */}
+            {/* Chrome/Edge/Android WebM with alpha */}
             <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.webm" type="video/webm" />
+            {/* Safari/iOS native HEVC with alpha */}
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type='video/mp4; codecs="hvc1"' />
           </video>
         </div>
 
