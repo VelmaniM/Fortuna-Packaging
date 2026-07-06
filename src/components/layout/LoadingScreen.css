@@ -58,7 +58,7 @@
 }
 
 .loading-screen {
-  @apply fixed inset-0 z-[10000] grid place-items-center overflow-hidden bg-white dark:bg-black px-6;
+  @apply fixed inset-0 z-[10000] grid place-items-center overflow-hidden bg-transparent px-6;
 }
 
 .loading-screen__content {
@@ -75,11 +75,6 @@
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  mix-blend-mode: multiply;
-}
-
-.dark .loading-screen__video {
-  mix-blend-mode: screen;
 }
 
 .loading-screen__wordmark {
