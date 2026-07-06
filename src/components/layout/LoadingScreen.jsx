@@ -63,7 +63,7 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type='video/mp4; codecs="hvc1"' />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type="video/mp4" />
           </video>
         </div>
 
