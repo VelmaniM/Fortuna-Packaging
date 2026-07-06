@@ -65,7 +65,7 @@ export default function LoadingScreen({ onComplete }) {
             onError={handleVideoError}
           >
             <source src="/Fortuna-Packaging/videos/fortuna-loader-white.webm" type="video/webm" />
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type='video/mp4; codecs="hvc1"' />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-white.mp4" type="video/mp4" />
           </video>
 
           {/* Dark Mode Video */}
@@ -81,7 +81,7 @@ export default function LoadingScreen({ onComplete }) {
             onError={handleVideoError}
           >
             <source src="/Fortuna-Packaging/videos/fortuna-loader-black.webm" type="video/webm" />
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type='video/mp4; codecs="hvc1"' />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-black.mp4" type="video/mp4" />
           </video>
         </div>
 
