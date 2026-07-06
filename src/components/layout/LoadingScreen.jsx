@@ -52,9 +52,10 @@ export default function LoadingScreen({ onComplete }) {
     >
       <div className="loader-content loading-screen__content">
         <div className="loading-screen__video-wrapper">
+          {/* Light Mode Video */}
           <video
             ref={videoRefLight}
-            className="loading-screen__video"
+            className="loading-screen__video dark:hidden"
             autoPlay
             muted
             playsInline
@@ -63,7 +64,24 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type="video/mp4" />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-white.webm" type="video/webm" />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-white.mp4" type="video/mp4" />
+          </video>
+
+          {/* Dark Mode Video */}
+          <video
+            ref={videoRefDark}
+            className="loading-screen__video hidden dark:block"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            aria-label="Fortuna logo animation"
+            onEnded={finishLoading}
+            onError={handleVideoError}
+          >
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-black.webm" type="video/webm" />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-black.mp4" type="video/mp4" />
           </video>
         </div>
 
