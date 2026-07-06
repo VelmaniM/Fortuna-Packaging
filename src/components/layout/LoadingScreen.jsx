@@ -64,7 +64,6 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-white.webm" type="video/webm" />
             <source src="/Fortuna-Packaging/videos/fortuna-loader-white.mp4" type="video/mp4" />
           </video>
 
@@ -80,7 +79,6 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-black.webm" type="video/webm" />
             <source src="/Fortuna-Packaging/videos/fortuna-loader-black.mp4" type="video/mp4" />
           </video>
         </div>
