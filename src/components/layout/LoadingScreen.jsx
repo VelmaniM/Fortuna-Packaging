@@ -10,7 +10,8 @@ export default function LoadingScreen({ onComplete }) {
   const [exiting, setExiting] = useState(false);
   const completedRef = useRef(false);
   const fallbackTimerRef = useRef(null);
-  const videoRef = useRef(null);
+  const videoRefLight = useRef(null);
+  const videoRefDark = useRef(null);
 
   const finishLoading = useCallback(() => {
     if (completedRef.current) return;
@@ -28,11 +29,13 @@ export default function LoadingScreen({ onComplete }) {
 
   useEffect(() => {
     // Attempt to force play for Safari which sometimes ignores autoPlay attribute
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
-    }
+    [videoRefLight, videoRefDark].forEach(ref => {
+      if (ref?.current) {
+        ref.current.defaultMuted = true;
+        ref.current.muted = true;
+        ref.current.play().catch(() => {});
+      }
+    });
   }, [finishLoading]);
 
   const handleVideoError = useCallback((event) => {
@@ -49,9 +52,10 @@ export default function LoadingScreen({ onComplete }) {
     >
       <div className="loader-content loading-screen__content">
         <div className="loading-screen__video-wrapper">
+          {/* Light Mode Video */}
           <video
-            ref={videoRef}
-            className="loading-screen__video"
+            ref={videoRefLight}
+            className="loading-screen__video dark:hidden"
             autoPlay
             muted
             playsInline
@@ -60,7 +64,23 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.webm" type="video/webm" />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-white.webm" type="video/webm" />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type='video/mp4; codecs="hvc1"' />
+          </video>
+
+          {/* Dark Mode Video */}
+          <video
+            ref={videoRefDark}
+            className="loading-screen__video hidden dark:block"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            aria-label="Fortuna logo animation"
+            onEnded={finishLoading}
+            onError={handleVideoError}
+          >
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-black.webm" type="video/webm" />
             <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type='video/mp4; codecs="hvc1"' />
           </video>
         </div>
