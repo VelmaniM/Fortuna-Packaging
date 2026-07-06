@@ -58,7 +58,7 @@
 }
 
 .loading-screen {
-  @apply fixed inset-0 z-[10000] grid place-items-center overflow-hidden bg-white dark:bg-black px-6;
+  @apply fixed inset-0 z-[10000] grid place-items-center overflow-hidden bg-transparent px-6;
 }
 
 .loading-screen__content {

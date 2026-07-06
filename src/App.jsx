@@ -59,7 +59,6 @@ function AppContent() {
     return <LoadingScreen onComplete={handleLoadComplete} />;
   }
 
-  // We only show the ChatBot on the home page or all pages? Let's show on all.
   return (
     <>
       <Navbar />
