@@ -56,14 +56,22 @@ function AppContent() {
     navigate('/');
   }, [navigate]);
 
-  if (isLoading) {
-    return <LoadingScreen onComplete={handleLoadComplete} />;
-  }
+  // Prevent scrolling on the body while the loading screen is active
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isLoading]);
 
   return (
     <>
       <Navbar />
-      <Suspense fallback={<LoadingScreen />}>
+      <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/finished-goods" element={<FinishedGoodsPage />} />
@@ -73,6 +81,7 @@ function AppContent() {
         </Routes>
       </Suspense>
       <ChatBot />
+      {isLoading && <LoadingScreen onComplete={handleLoadComplete} />}
     </>
   );
 }

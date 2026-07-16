@@ -17,12 +17,20 @@
         margin: 0;
         padding: 0;
         background-color: #f8fafc;
-        font-family: system-ui, -apple-system, sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       }
       .initial-skeleton-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
         flex-direction: column;
         height: 100vh;
+        height: 100dvh;
         width: 100%;
         overflow: hidden;
       }
@@ -30,7 +38,13 @@
         height: 72px;
         background: #ffffff;
         border-bottom: 1px solid #e2e8f0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
         align-items: center;
         padding: 0 2rem;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -41,15 +55,33 @@
         height: 40px;
         background: #e2e8f0;
         border-radius: 4px;
+        -webkit-animation: pulse 1.5s infinite ease-in-out;
         animation: pulse 1.5s infinite ease-in-out;
       }
       .skeleton-hero {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        -webkit-flex: 1;
         flex: 1;
         background: #e2e8f0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
         flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
         justify-content: center;
+        -webkit-animation: pulse 1.5s infinite ease-in-out;
         animation: pulse 1.5s infinite ease-in-out;
       }
       .skeleton-title {
@@ -66,6 +98,11 @@
         height: 30px;
         background: #cbd5e1;
         border-radius: 8px;
+      }
+      @-webkit-keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.7; }
+        100% { opacity: 1; }
       }
       @keyframes pulse {
         0% { opacity: 1; }

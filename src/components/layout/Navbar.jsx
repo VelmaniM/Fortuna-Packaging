@@ -19,6 +19,11 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
+    // Briefly disable all CSS transitions to make the theme change instant globally
+    const style = document.createElement('style');
+    style.textContent = '*, *::before, *::after { transition: none !important; }';
+    document.head.appendChild(style);
+
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -26,6 +31,16 @@ export default function Navbar() {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
+
+    // Force a reflow to ensure the DOM applies the new classes immediately
+    window.getComputedStyle(document.documentElement).getPropertyValue('opacity');
+
+    // Remove the style block after the browser has painted
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.head.removeChild(style);
+      });
+    });
   }, [isDarkMode]);
 
   // Handle cross-page scrolling using router state
@@ -57,7 +72,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="navbar transition-colors duration-300 navbar--scrolled text-slate-700 dark:text-white dark:border-b dark:border-gray-800">
+    <header className="navbar navbar--scrolled text-slate-700 dark:text-white dark:border-b dark:border-gray-800">
       <nav className="navbar__container">
         <div className="navbar__brand group">
           <FortunaLogo size="md" />

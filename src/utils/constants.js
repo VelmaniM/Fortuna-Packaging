@@ -23,5 +23,4 @@ export const NAV_LINKS = [
   { label: 'Infrastructure', href: '#infrastructure' },
   { label: 'Products', href: '#products' },
   { label: 'Quality', href: '#quality' },
-  { label: 'Contact Us', href: '#contact' },
 ];

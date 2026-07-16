@@ -15,7 +15,7 @@ export default function FortunaLogo({ size = 'md', showTagline = true, light = f
     lg: { icon: 'h-20 w-20', wordmark: 'h-14 max-w-[16rem]' },
   };
   const s = sizes[size] || sizes.md;
-  const wordmarkOpacity = light ? 'brightness-0 invert' : '';
+  const wordmarkOpacity = light ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert';
 
   const goHome = (e) => {
     e.preventDefault();

@@ -388,29 +388,29 @@ export default function ContactSection() {
           <div className="contact-footer__grid">
             {/* Column 1: Brand & About */}
             <div className="contact-footer__brand-col">
-              <FortunaLogo size="md" light showTagline />
+              <FortunaLogo size="md" showTagline />
               <p className="contact-footer__brand-desc">
                 Delivering state-of-the-art flexible packaging solutions for global brands. Precision, quality, and innovation in every layer.
               </p>
               
               {/* Social Media Icons */}
               <div className="contact-footer__socials">
-                <a href="#" className="contact-footer__social-link hover:bg-[#0077b5] hover:text-white">
+                <a href="#" className="contact-footer__social-link hover:bg-[#0077b5] dark:hover:bg-[#0077b5] hover:text-white dark:hover:text-white">
                   <FaLinkedinIn size={14} />
                 </a>
-                <a href="#" className="contact-footer__social-link hover:bg-[#E1306C] hover:text-white">
+                <a href="#" className="contact-footer__social-link hover:bg-[#E1306C] dark:hover:bg-[#E1306C] hover:text-white dark:hover:text-white">
                   <FaInstagram size={14} />
                 </a>
-                <a href="#" className="contact-footer__social-link hover:bg-[#25D366] hover:text-white">
+                <a href="#" className="contact-footer__social-link hover:bg-[#25D366] dark:hover:bg-[#25D366] hover:text-white dark:hover:text-white">
                   <FaWhatsapp size={14} />
                 </a>
-                <a href="#" className="contact-footer__social-link hover:bg-[#FF0000] hover:text-white">
+                <a href="#" className="contact-footer__social-link hover:bg-[#FF0000] dark:hover:bg-[#FF0000] hover:text-white dark:hover:text-white">
                   <FaYoutube size={14} />
                 </a>
-                <a href={`mailto:${COMPANY.email}`} className="contact-footer__social-link hover:bg-red hover:text-white">
+                <a href={`mailto:${COMPANY.email}`} className="contact-footer__social-link hover:bg-red dark:hover:bg-red hover:text-white dark:hover:text-white">
                   <HiMail size={16} />
                 </a>
-                <a href={`tel:${COMPANY.phone}`} className="contact-footer__social-link hover:bg-emerald-500 hover:text-white">
+                <a href={`tel:${COMPANY.phone}`} className="contact-footer__social-link hover:bg-emerald-500 dark:hover:bg-emerald-500 hover:text-white dark:hover:text-white">
                   <HiPhone size={16} />
                 </a>
               </div>
