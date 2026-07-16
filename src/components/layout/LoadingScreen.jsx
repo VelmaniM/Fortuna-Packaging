@@ -11,7 +11,6 @@ export default function LoadingScreen({ onComplete }) {
   const completedRef = useRef(false);
   const fallbackTimerRef = useRef(null);
   const videoRefLight = useRef(null);
-  const videoRefDark = useRef(null);
 
   const finishLoading = useCallback(() => {
     if (completedRef.current) return;
@@ -29,7 +28,7 @@ export default function LoadingScreen({ onComplete }) {
 
   useEffect(() => {
     // Attempt to force play for Safari which sometimes ignores autoPlay attribute
-    [videoRefLight, videoRefDark].forEach(ref => {
+    [videoRefLight].forEach(ref => {
       if (ref?.current) {
         ref.current.defaultMuted = true;
         ref.current.muted = true;
@@ -55,7 +54,7 @@ export default function LoadingScreen({ onComplete }) {
           {/* Light Mode Video */}
           <video
             ref={videoRefLight}
-            className="loading-screen__video dark:hidden"
+            className="loading-screen__video"
             autoPlay
             muted
             playsInline
@@ -64,22 +63,7 @@ export default function LoadingScreen({ onComplete }) {
             onEnded={finishLoading}
             onError={handleVideoError}
           >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-white.mp4" type="video/mp4" />
-          </video>
-
-          {/* Dark Mode Video */}
-          <video
-            ref={videoRefDark}
-            className="loading-screen__video hidden dark:block"
-            autoPlay
-            muted
-            playsInline
-            preload="auto"
-            aria-label="Fortuna logo animation"
-            onEnded={finishLoading}
-            onError={handleVideoError}
-          >
-            <source src="/Fortuna-Packaging/videos/fortuna-loader-black.mp4" type="video/mp4" />
+            <source src="/Fortuna-Packaging/videos/fortuna-loader-logo-transparent.mp4" type="video/mp4" />
           </video>
         </div>
 
