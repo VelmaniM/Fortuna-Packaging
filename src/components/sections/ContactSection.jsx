@@ -488,7 +488,7 @@ export default function ContactSection() {
             <div className="contact-footer__legal-links">
               <Link to="/privacy-policy" className="contact-footer__legal-link">Privacy Policy</Link>
               <Link to="/terms-of-service" className="contact-footer__legal-link">Terms of Service</Link>
-              <a href="https://maps.google.com/?q=9.872736,78.346081" target="_blank" rel="noopener noreferrer" className="contact-footer__legal-link">Sitemap</a>
+              <a href="https://maps.google.com/?q=9.881833,78.345191" target="_blank" rel="noopener noreferrer" className="contact-footer__legal-link">Sitemap</a>
             </div>
           </div>
         </div>
