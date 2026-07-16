@@ -11,10 +11,84 @@
     <link rel="preload" href="/Fortuna-Packaging/images/brochure/company-plant.jpg" as="image" type="image/jpeg" />
 
     <title>Fortuna Packaging | Impress With Impressions</title>
-    <script type="module" crossorigin src="/Fortuna-Packaging/assets/index-Ck5degc1.js"></script>
-    <link rel="stylesheet" crossorigin href="/Fortuna-Packaging/assets/index-BVvrHpPD.css">
-  </head>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      .initial-skeleton-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+      }
+      .skeleton-nav {
+        height: 72px;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        z-index: 50;
+      }
+      .skeleton-logo {
+        width: 150px;
+        height: 40px;
+        background: #e2e8f0;
+        border-radius: 4px;
+        animation: pulse 1.5s infinite ease-in-out;
+      }
+      .skeleton-hero {
+        flex: 1;
+        background: #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 1.5s infinite ease-in-out;
+      }
+      .skeleton-title {
+        width: 60%;
+        max-width: 600px;
+        height: 60px;
+        background: #cbd5e1;
+        border-radius: 8px;
+        margin-bottom: 24px;
+      }
+      .skeleton-subtitle {
+        width: 40%;
+        max-width: 400px;
+        height: 30px;
+        background: #cbd5e1;
+        border-radius: 8px;
+      }
+      @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.7; }
+        100% { opacity: 1; }
+      }
+    </style>
+    <script type="module" crossorigin src="/Fortuna-Packaging/assets/index-B6063cRC.js"></script>
+    <link rel="modulepreload" crossorigin href="/Fortuna-Packaging/assets/vendor-I0Zoeza3.js">
+    <link rel="modulepreload" crossorigin href="/Fortuna-Packaging/assets/icons-C7Z2Ig2d.js">
+    <link rel="stylesheet" crossorigin href="/Fortuna-Packaging/assets/index-DcMXymSB.css">
+  <link rel="manifest" href="/Fortuna-Packaging/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/Fortuna-Packaging/registerSW.js"></script></head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-skeleton-container">
+        <div class="skeleton-nav">
+          <div class="skeleton-logo"></div>
+        </div>
+        <div class="skeleton-hero">
+          <div class="skeleton-title"></div>
+          <div class="skeleton-subtitle"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
